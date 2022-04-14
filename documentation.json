@@ -998,21 +998,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Progressbar.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<ProgressBarComponent>",
-                "defaultValue": "(args: ProgressBarComponent) => ({\n    props: args,\n  })"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/Stepper.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<StepperComponent>",
                 "defaultValue": "(args: StepperComponent) => ({\n    props: args,\n  })"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Progressbar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ProgressBarComponent>",
+                "defaultValue": "(args: ProgressBarComponent) => ({\n    props: args,\n  })"
             }
         ],
         "functions": [],

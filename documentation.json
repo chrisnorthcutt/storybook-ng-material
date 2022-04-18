@@ -680,6 +680,63 @@
                 "OnInit"
             ],
             "templateData": "<mat-horizontal-stepper linear #stepper>\n    <mat-step [stepControl]=\"firstFormGroup\">\n      <form [formGroup]=\"firstFormGroup\">\n        <ng-template matStepLabel>Fill out your name</ng-template>\n        <mat-form-field>\n          <mat-label>Name</mat-label>\n          <input matInput placeholder=\"Last name, First name\" formControlName=\"firstCtrl\" required>\n        </mat-form-field>\n        <div>\n          <button mat-button matStepperNext>Next</button>\n        </div>\n      </form>\n    </mat-step>\n    <mat-step [stepControl]=\"secondFormGroup\" label=\"Fill out your address\">\n      <form [formGroup]=\"secondFormGroup\">\n        <mat-form-field>\n          <mat-label>Address</mat-label>\n          <input matInput formControlName=\"secondCtrl\" placeholder=\"Ex. 1 Main St, New York, NY\"\n                 required>\n        </mat-form-field>\n        <div>\n          <button mat-button matStepperPrevious>Back</button>\n          <button mat-button matStepperNext>Next</button>\n        </div>\n      </form>\n    </mat-step>\n    <mat-step>\n      <ng-template matStepLabel>Done</ng-template>\n      <p>You are now done.</p>\n      <div>\n        <button mat-button matStepperPrevious>Back</button>\n        <button mat-button (click)=\"stepper.reset()\">Reset</button>\n      </div>\n    </mat-step>\n  </mat-horizontal-stepper>"
+        },
+        {
+            "name": "TypeComponent",
+            "id": "component-TypeComponent-2e7121a70b69ef89d1b62f39b00362db493185bcc9050e970c144f72c88b57878612d461dfd451213f893707ac93a1ec3dd2e00f4c83abf337079b9c8e215e46",
+            "file": "src/app/type/type.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-type",
+            "styleUrls": [
+                "./type.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./type.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "label",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "style",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-type',\n  templateUrl: './type.component.html',\n  styleUrls: ['./type.component.scss']\n})\nexport class TypeComponent  {\n\n  @Input() \n  label:string\n\n  @Input()\n  style:string\n\n}\n\nexport const argTypes = {\n  label: {\n    name: 'label',\n    type: { name: 'string', required: false },\n    defaultValue: 'Hello',\n    description: 'demo description',\n    table: {\n      type: { summary: 'string' },\n      defaultValue: { summary: 'Hello' },\n    },\n    control: {\n      type: 'text'\n    }\n  }\n}\n\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".example-card {\n    max-width: 300px;\n}",
+                    "styleUrl": "./type.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<p [class]=\"style\">{{label}}</p>\n  "
         }
     ],
     "modules": [
@@ -775,6 +832,16 @@
     ],
     "miscellaneous": {
         "variables": [
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/type/type.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  label: {\n    name: 'label',\n    type: { name: 'string', required: false },\n    defaultValue: 'Hello',\n    description: 'demo description',\n    table: {\n      type: { summary: 'string' },\n      defaultValue: { summary: 'Hello' },\n    },\n    control: {\n      type: 'text'\n    }\n  }\n}"
+            },
             {
                 "name": "Buffer",
                 "ctype": "miscellaneous",
@@ -998,27 +1065,39 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Stepper.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<StepperComponent>",
-                "defaultValue": "(args: StepperComponent) => ({\n    props: args,\n  })"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/Progressbar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<ProgressBarComponent>",
                 "defaultValue": "(args: ProgressBarComponent) => ({\n    props: args,\n  })"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Stepper.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<StepperComponent>",
+                "defaultValue": "(args: StepperComponent) => ({\n    props: args,\n  })"
             }
         ],
         "functions": [],
         "typealiases": [],
         "enumerations": [],
         "groupedVariables": {
+            "src/app/type/type.component.ts": [
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/type/type.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  label: {\n    name: 'label',\n    type: { name: 'string', required: false },\n    defaultValue: 'Hello',\n    description: 'demo description',\n    table: {\n      type: { summary: 'string' },\n      defaultValue: { summary: 'Hello' },\n    },\n    control: {\n      type: 'text'\n    }\n  }\n}"
+                }
+            ],
             "src/stories/Progressbar.stories.ts": [
                 {
                     "name": "Buffer",
@@ -1329,6 +1408,25 @@
                 "name": "StepperComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/type/type.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "TypeComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/type/type.component.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "argTypes",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {

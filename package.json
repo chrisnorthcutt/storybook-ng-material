@@ -26,6 +26,7 @@
     "@angular/platform-browser-dynamic": "~11.2.6",
     "@angular/router": "~11.2.6",
     "@whitespace/storybook-addon-html": "^5.0.0",
+    "react-syntax-highlighter": "^15.5.0",
     "rxjs": "~6.6.0",
     "storybook-addon-preview": "^2.2.0",
     "tslib": "^2.0.0",

@@ -1,0 +1,37 @@
+<!-- Colors.stories.mdx -->
+
+import { Meta, ColorPalette, ColorItem } from "@storybook/addon-docs";
+
+<Meta title="Foundations/Colors" />
+
+<ColorPalette>
+  <ColorItem
+    title="Primary"
+    subtitle="Brand Blue"
+    colors={{
+      500: "#2E729F",
+      900: "#002846",
+      50: "hsla(201, 54%, 95%, 1)",
+    }}
+  />
+  <ColorItem
+    title="Text"
+    subtitle="Black"
+    colors={{ HighEmphasis: "hsla(0, 0%, 0%, 0.87)", MediumEmphasis: "hsla(0, 0%, 0%, 0.74)", Disabled: "hsla(0, 0%, 0%, 0.56)" }}
+  />
+  <ColorItem
+    title="theme.color.secondary"
+    subtitle="Ocean"
+    colors={{ DodgerBlue: "#1EA7FD" }}
+  />
+  <ColorItem
+    title="theme.color.positive"
+    subtitle="Green"
+    colors={{
+      Apple: "rgba(102,191,60,1)",
+      Apple80: "rgba(102,191,60,.8)",
+      Apple60: "rgba(102,191,60,.6)",
+      Apple30: "rgba(102,191,60,.3)",
+    }}
+  />
+</ColorPalette>

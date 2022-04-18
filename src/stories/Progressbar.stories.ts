@@ -2,6 +2,7 @@ import { Story, Meta } from '@storybook/angular/types-6-0';
 import { moduleMetadata } from '@storybook/angular';
 import { ProgressBarComponent } from '../app/progress-bar/progress-bar.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+
 export default {
     title: 'Angular Material/Progressbar',
     component: ProgressBarComponent,

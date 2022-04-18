@@ -1,0 +1,114 @@
+import { Meta, ColorPalette, ColorItem, Typeset, ArgsTable, Canvas,Story } from '@storybook/addon-docs';
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { TypeComponent } from 'src/app/type/type.component';
+
+
+<Meta title="Foundations/Typography" component={TypeComponent} argTypes={{
+    status: {
+      name: 'Badge Status',
+      description: 'Available options available to the Badge',
+      options: [
+        'positive',
+        'negative',
+        'warning',
+        'error',
+        'neutral'
+      ],
+      table: {
+        defaultValue: {
+          summary: 'positive'
+        },
+        type: {
+          summary: 'Shows options to the Badge',
+          detail: 'Listing of available options'
+        },
+      },
+    },
+    label: {
+      name: 'Badge Content',
+      description: 'Text shown by Badge',
+      control: {
+        type: 'text'
+      },
+      table: {
+        type: {
+          summary: 'The label contents',
+          detail: 'Text displayed by the Badge'
+        }
+      }
+    }
+  }}/>
+
+
+<style>{
+    `
+    table {
+        width: 100%;
+        text-align: left;
+    }
+   `
+} </style>
+
+# Typography
+
+Typography is critical for communicating the hierarchy of a page.
+
+export const typography = {
+  type: {
+    primary: '"Inter", "Helvetica Neue", Helvetica, Arial, sans-serif',
+  },
+  weight: {
+    regular: '500',
+    semiBold: '600',
+    bold: '700'
+  },
+  size: {
+    s1: 12,
+    s2: 14,
+    s3: 16,
+    m1: 20,
+    m2: 24,
+  },
+};
+
+export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+
+**Font:** Inter
+
+**Weights:** 500(regular), 600(semiBold), 700(bold)
+
+<Typeset
+  fontSizes={[
+    Number(typography.size.s1),
+    Number(typography.size.s2),
+    Number(typography.size.s3),
+    Number(typography.size.m1),
+    Number(typography.size.m2),
+  ]}
+  fontWeight={typography.weight.regular}
+  sampleText={[SampleText]}
+  fontFamily={typography.type.primary}
+/>
+
+## Styles
+
+| Name | Class | Element |
+| ---- | ---- | ---- |
+| Headline | mat-headline | h1 |
+| Title | mat-title | h2 |
+| Subheading 1 | mat-subheading-1 | h3 |
+| Subheading 2 | mat-subheading-2 | h4 |
+| Body 1 | mat-body-1 | body |
+| Body 2 | mat-body-2 |  |
+| Caption | mat-caption |  |
+
+
+## Colors
+  <ColorItem
+    title="Text"
+    subtitle="Black"
+    colors={{ HighEmphasis: "hsla(0, 0%, 0%, 0.87)", MediumEmphasis: "hsla(0, 0%, 0%, 0.74)", Disabled: "hsla(0, 0%, 0%, 0.56)" }}
+  />
+
+<ArgsTable of={TypeComponent} />
+

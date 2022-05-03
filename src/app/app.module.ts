@@ -13,13 +13,14 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
-
+import { DemoMaterialModule } from './material.module';
 
 
 
 import {MatFormFieldModule} from '@angular/material/form-field'; 
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CardComponent } from './card/card.component' 
+import { MetricContainerModule } from './metric-container';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,9 @@ import { CardComponent } from './card/card.component'
     MatIconModule,
     NoopAnimationsModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    DemoMaterialModule,
+    MetricContainerModule
 
   ],
   providers: [

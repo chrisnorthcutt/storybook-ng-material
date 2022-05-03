@@ -1,0 +1,17 @@
+<div class="metric-container">
+  <div class="metric-container__icon">
+    <mat-icon>{{icon}}</mat-icon>
+  </div>
+  <div class="metric-container__content">
+    <div class="metric-container__title">
+      <ng-content select="[title]"></ng-content>
+    </div>
+    <div class="metric-container__metric">
+      <ng-content select="[metric]"></ng-content>
+    </div>
+    <div class="metric-container__description">
+      <ng-content select="[description]"></ng-content>
+    </div>
+  </div>
+ 
+</div>

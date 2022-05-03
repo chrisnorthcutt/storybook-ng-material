@@ -1,0 +1,241 @@
+// background colors
+$bg1: #f5f6f7;
+$bg2: #ecedee;
+$bg3: #e1e3e5;
+
+// white
+$phaas-white: #ffffff;
+$phaas-white-light: rgba($phaas-white, 0.50);
+$phaas-white-lighter: rgba($phaas-white, 0.20);
+$phaas-white-lightest: rgba($phaas-white, 0.12);
+
+// black
+$phaas-black: #0c0916;
+$phaas-black-light: rgba($phaas-black, 0.50);
+$phaas-black-lighter: rgba($phaas-black, 0.20);
+$phaas-black-lightest: rgba($phaas-black, 0.12);
+
+// ink - should only be used for fonts
+$phaas-ink-normal: rgba($phaas-black, 0.8);
+$phaas-ink-secondary: rgba($phaas-black, 0.6);
+$phaas-ink-disabled: rgba($phaas-black, 0.38);
+
+// gray
+$phaas-gray: #575c60;
+$phaas-gray-light: lighten($phaas-gray, 25%);
+$phaas-gray-lighter: lighten($phaas-gray, 55%);
+$phaas-gray-lightest: lighten($phaas-gray, 60%);
+
+// blue
+$phaas-blue: #2e729f;
+$phaas-blue-darker: darken($phaas-blue, 30%);
+$phaas-blue-dark: darken($phaas-blue, 15%);
+$phaas-blue-light: lighten($phaas-blue, 25%);
+$phaas-blue-lighter: lighten($phaas-blue, 50%);
+$phaas-blue-lightest: lighten($phaas-blue, 55%);
+
+$phaas-brand-blue: #337daf;
+
+// teal
+$phaas-teal: #4ac0b2;
+$phaas-teal-darker: darken($phaas-teal, 30%);
+$phaas-teal-dark: darken($phaas-teal, 15%);
+$phaas-teal-light: lighten($phaas-teal, 25%);
+$phaas-teal-lighter: lighten($phaas-teal, 40%);
+
+$phaas-brand-teal: #4ab0b2;
+
+// red
+$phaas-red: #c84026;
+$phaas-red-darker: darken($phaas-red, 30%);
+$phaas-red-dark: darken($phaas-red, 15%);
+$phaas-red-light: lighten($phaas-red, 25%);
+$phaas-red-lighter: lighten($phaas-red, 40%);
+
+// yellow
+$phaas-yellow: #f2be28;
+$phaas-yellow-darker: darken($phaas-yellow, 30%);
+$phaas-yellow-dark: darken($phaas-yellow, 15%);
+$phaas-yellow-light: lighten($phaas-yellow, 25%);
+$phaas-yellow-lighter: lighten($phaas-yellow, 40%);
+
+// green
+$phaas-green: #58cc88;
+$phaas-green-darker: darken($phaas-green, 30%);
+$phaas-green-dark: darken($phaas-green, 15%);
+$phaas-green-light: lighten($phaas-green, 25%);
+$phaas-green-lighter: lighten($phaas-green, 40%);
+
+// gradients
+$phaas-horizontal-gradient: linear-gradient(90deg, $phaas-brand-blue 0%, $phaas-brand-teal 100%);
+$phaas-vertical-gradient: linear-gradient(180deg, $phaas-brand-blue 0%, $phaas-brand-teal 100%);
+$phaas-diagonal-gradient: linear-gradient(135deg, $phaas-brand-blue 0%, $phaas-brand-teal 100%);
+
+// analytics colors
+$phaas-analytics-blue: #0078B9;
+$phaas-analytics-blue-light: #A8C7EB;
+$phaas-analytics-orange: #FF7700;
+$phaas-analytics-orange-light: #FFB86B;
+$phaas-analytics-purple: #9D62C3;
+$phaas-analytics-purple-light: #CAAED8;
+$phaas-analytics-brown: #955348;
+$phaas-analytics-brown-light: #CD9C94;
+$phaas-analytics-pink: #F36DC6;
+$phaas-analytics-pink-light: #FFB2D3;
+$phaas-analytics-pistachio: #BBBF00;
+$phaas-analytics-pistachio-light: #DADC82;
+$phaas-analytics-teal: #00C1D2;
+$phaas-analytics-teal-light: #8DDCE7;
+$phaas-analytics-green: #45AD6D;
+$phaas-analytics-green-light: #B4E55E;
+$phaas-analytics-red: #E02020;
+$phaas-analytics-grey: #C7C7C7;
+
+$phaas-blue-palette: (50: #e6eef3,
+  100: #c0d5e2,
+  200: #97b9cf,
+  300: #6d9cbc,
+  400: #4d87ad,
+  500: #2e729f,
+  600: #296a97,
+  700: #235f8d,
+  800: #1d5583,
+  900: #124272,
+  A100: #a7d0ff,
+  A200: #74b4ff,
+  A400: #4199ff,
+  A700: #288bff,
+  contrast: (50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #ffffff));
+
+$phaas-yellow-palette: (50: #fdf7e5,
+  100: #fbecbf,
+  200: #f9df94,
+  300: #f6d269,
+  400: #f4c848,
+  500: #f2be28,
+  600: #f0b824,
+  700: #eeaf1e,
+  800: #eca718,
+  900: #e8990f,
+  A100: #ffffff,
+  A200: #fff3e1,
+  A400: #ffdfae,
+  A700: #ffd595,
+  contrast: (50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
+    900: #000000,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000));
+
+$phaas-red-palette: (50: #f8e8e5,
+  100: #efc6be,
+  200: #e4a093,
+  300: #d97967,
+  400: #d05d47,
+  500: #c84026,
+  600: #c23a22,
+  700: #bb321c,
+  800: #b42a17,
+  900: #a71c0d,
+  A100: #ffd8d5,
+  A200: #ffa9a2,
+  A400: #ff7a6f,
+  A700: #ff6256,
+  contrast: (50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000));
+
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+.metric-container {
+  font-family: 'Inter';
+  color: rgba($phaas-black, 0.8);
+  display: inline-flex;
+  flex-direction: row;
+  padding: 16px;
+  border-radius: 6px;
+  align-items: center;
+  width: auto;
+  min-width: 400px;
+  box-shadow: 0px 8px 15px -4px #34435e3d;
+  gap: 24px;
+
+}
+
+.metric-container__icon {
+  height: 48px;
+  width: 48px;
+  border-radius: 100%;
+  color: $phaas-blue;
+  background-color: $phaas-blue-lightest;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.metric-container__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.metric-container__title {
+  font-size: 12px;
+ height: 24px;
+  padding-bottom: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color:rgba($phaas-black, 0.6)
+}
+
+.metric-container__metric {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.125
+}
+
+.metric-container__description {
+  margin-top: 12px;
+  font-size: 12px;
+  text-align: center;
+  color:rgba($phaas-black, 0.6)
+}
+
+.metric-container__description:empty {
+  margin-top: 0px;
+}

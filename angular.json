@@ -118,6 +118,5 @@
         }
       }
     }
-  },
-  "defaultProject": "storybook-ng-material"
+  }
 }

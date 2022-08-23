@@ -4,12 +4,7 @@ import { User } from './User';
 @Component({
   selector: 'storybook-page',
   template: `<article>
-    <storybook-header
-      [user]="user"
-      (onLogout)="doLogout()"
-      (onLogin)="doLogin()"
-      (onCreateAccount)="doCreateAccount()"
-    ></storybook-header>
+
     <section>
       <h2>Pages in Storybook</h2>
       <p>

@@ -4,6 +4,9 @@ import { ButtonComponent } from '../app/button/button.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { moduleMetadata } from '@storybook/angular';
+import { previewTemplate, DEFAULT_ANGULAR_CODESANDBOX } from 'storybook-addon-preview';
+
+
 
 // More on default export: https://storybook.js.org/docs/angular/writing-stories/introduction#default-export
 export default {
@@ -37,6 +40,28 @@ Primary.args = {
   iconLeft: false,
   iconRight: false
 };
+
+export interface PropsOptions {
+  indent?: number;
+  wrap?: string;
+  prefix?: string;
+}
+
+Primary.parameters = {
+  preview: [
+      {
+          tab: "Angular",
+          template: previewTemplate`
+          <button
+          ${ANGULAR_PROPS_TEMPLATE(["gy", "mat-raised-button"], { indent: 4 })}
+              ></button>
+          `,
+          language: "html",
+          copy: true,
+          codesandbox: DEFAULT_ANGULAR_CODESANDBOX(["@egjs/infinitegrid"]),
+      },
+  ],
+};
 export const Secondary = Template.bind({});
 Secondary.args = {
   Label: 'Secondary',
@@ -54,4 +79,11 @@ Action.args = {
   iconRight: false
 };
 
+
+
+
+
+function ANGULAR_PROPS_TEMPLATE(arg0: string[], arg1: { indent: number; }): any {
+  throw new Error('Function not implemented.');
+}
 

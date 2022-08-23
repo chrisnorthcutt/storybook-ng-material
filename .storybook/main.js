@@ -9,6 +9,7 @@ module.exports = {
     "@storybook/addon-interactions",
     '@whitespace/storybook-addon-html',
     "storybook-addon-preview/register",
+    '@storybook/addon-knobs'
 
   ],
   "framework": "@storybook/angular"

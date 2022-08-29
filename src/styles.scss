@@ -1,16 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
-
-html, body { height: 100%; }
-
-@import '~@angular/material/theming';
-// Plus imports for other components in your app.
-
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// **Be sure that you only ever include this mixin once!**
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
+@import "~@angular/material/theming";
 @include mat-core();
-body { margin: 0; }
+
+body {
+  margin: 0;
+}
+html,
+body {
+  height: 100%;
+  color: mat-color($mat-blue-gray, 800);
+}
 $oc-blue: (
   50: #e6eef3,
   100: #c0d5e2,
@@ -27,24 +27,24 @@ $oc-blue: (
   A400: #4199ff,
   A700: #288bff,
   contrast: (
-    50: #000000,
-    100: #000000,
-    200: #000000,
-    300: #000000,
-    400: #ffffff,
-    500: #ffffff,
-    600: #ffffff,
-    700: #ffffff,
-    800: #ffffff,
-    900: #ffffff,
-    A100: #a24e4e,
-    A200: #913434,
-    A400: #000000,
-    A700: #ffffff,
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $light-primary-text,
+    400: $light-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
   ),
 );
 
-$primary-blue: map-get($oc-blue, 500 );
+$primary-blue: map-get($oc-blue, 500);
 
 $oc-teal: (
   50: #e9f7f6,
@@ -78,38 +78,113 @@ $oc-teal: (
     A700: #000000,
   ),
 );
-$my-primary: mat-palette($oc-blue, 500);
-$my-accent: mat-palette($oc-teal, 900);
+$oc-primary: mat-palette($oc-blue, 500);
+$oc-accent: mat-palette($oc-teal, 900);
 
-// The "warn" palette is optional and defaults to red if not specified.
+// Material Theme Overrides
 
 $oc-typography: mat-typography-config(
-    $font-family: "'Inter', 'Helvetica Neue', sans-serif",
-  );
-$oc-theme: mat-light-theme(
-  (
-    color: (
-      primary: $my-primary,
-      accent: $my-accent,
+  $font-family: "'Inter', 'Helvetica Neue', sans-serif",
+);
+$oc-theme: mat-light-theme($oc-primary, $oc-accent);
 
+@function tweak-material-contrast($theme) {
+  // Picks the light/dark text overrides from the extended foreground
+  $fore: map-get($theme, foreground);
+  $dark: map-get($fore, dark-text);
+  $light: map-get($fore, light-text);
+
+  // Loops on the three palettes
+  @each $pal in ("primary", "accent", "warn") {
+    $palette: map-get($theme, $pal);
+
+    // Loops on the three color contrasts
+    @each $cnt in ("default", "lighter", "darker") {
+      $contrast: map-get($palette, #{$cnt}-contrast);
+
+      // Overrides $dark-primary-text values
+      @if $dark and $contrast == $dark-primary-text {
+        $palette: map-merge($palette, (#{$cnt}-contrast: $dark));
+        $theme: map-merge($theme, (#{$pal}: $palette));
+      }
+
+      // Overrides $light-primary-text values
+      @if $light and $contrast == $light-primary-text {
+        $palette: map-merge($palette, (#{$cnt}-contrast: $light));
+        $theme: map-merge($theme, (#{$pal}: $palette));
+      }
+    }
+  }
+
+  @return $theme;
+}
+
+@function tweak-material-theme($theme, $foreground, $background) {
+  // Gets the standard material maps of fore/background
+  $fore: map-get($theme, foreground);
+  $back: map-get($theme, background);
+
+  // Merges the standard values with the override
+  $result: map-merge(
+    $theme,
+    (
+      foreground: map-merge($fore, $foreground),
+      background: map-merge($back, $background),
     )
+  );
+
+  // Picks the light/dark text overrides from the extended foreground
+  $dark: map-get($foreground, dark-text);
+  $light: map-get($foreground, light-text);
+
+  // Overrides the default contrast values to reflect the new foreground
+  @return map-merge($result, tweak-material-contrast($result));
+}
+
+
+
+$theme: tweak-material-theme(
+  $oc-theme,
+  $foreground: (
+    base: mat-color($mat-blue-gray, 800),
+    text: mat-color($mat-blue-gray, 800),
+    secondary-text: mat-color($mat-blue-gray, 600),
+    icons: red,
+    elevation: rgb(61, 72, 80),
+  ),
+  $background: (
+    // Overrides Material background colors
+    app-bar: white,
+    unselected-chip: white,
+    status-bar: white,
+    background: #fafafa,
+    hover: mat-color($oc-accent, 50),
+    selected-button: mat-color($oc-accent, 50)
   )
 );
 
+//Custom Typography
 
+.mat-overline {
+  font-family: "Inter";
+  font-weight: 600;
+  font-size: 0.75rem;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: uppercase;
+}
 
-@include angular-material-theme($oc-theme);
+@include angular-material-theme($theme);
 
 @include angular-material-typography($oc-typography);
 
-//Button Overrides 
+//Button Overrides
 
 .mat-button-base {
-  &  .mat-icon {
+  & .mat-icon {
     height: 18px;
     width: 18px;
     font-size: 18px;
-
   }
 
   & span.mat-button-wrapper {
@@ -119,4 +194,52 @@ $oc-theme: mat-light-theme(
   }
 }
 
+.mat-list-single-selected-option,
+.mat-list-single-selected-option:hover,
+.mat-list-single-selected-option:focus {
+  background: mat-color($oc-accent, 50);
+}
 
+.mat-standard-chip {
+  border: 1px solid mat-color($mat-blue-gray, 200) !important;
+}
+
+.mat-basic-chip {
+  height: 32px;
+  background: mat-color($oc-primary, 500);
+  color: white;
+  padding: 0 12px;
+  border-radius: 16px;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  gap: 4px;
+  margin: 4px;
+  & .mat-icon.mat-chip-trailing-icon {
+    height: 18px;
+    width: 18px;
+  }
+}
+
+.mat-standard-chip::after {
+  background-color: mat-color($oc-accent, 300) !important;
+}
+
+.mat-basic-chip.mat-primary {
+  background: mat-color($oc-primary, 500);
+  
+}
+
+.mat-basic-chip.mat-accent {
+  background: mat-color($oc-accent, 900);
+
+}
+.mat-basic-chip.mat-yellow {
+  background: rgb(202, 145, 2);
+
+}
+
+
+.mat-ripple-element {
+  background-color: rgba(0, 0, 0, 0.05);
+}

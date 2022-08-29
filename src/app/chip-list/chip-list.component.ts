@@ -15,7 +15,7 @@ export interface Vegetable {
   templateUrl: './chip-list.component.html',
   styleUrls: ['./chip-list.component.scss']
 })
-export class ChipListComponent implements OnInit {
+export class ChipListComponent {
   addOnBlur = true;
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
   fruits: Fruit[] = [{name: 'Lemon'}, {name: 'Lime'}, {name: 'Apple'}];
@@ -29,10 +29,7 @@ export class ChipListComponent implements OnInit {
     }
 
     // Clear the input value
-
-    if (event.input) {
-      event.input.value = '';
-    }
+    event.input.value = "";
   }
 
   remove(fruit: Fruit): void {
@@ -42,10 +39,10 @@ export class ChipListComponent implements OnInit {
       this.fruits.splice(index, 1);
     }
   }
-  constructor() { }
 
-  ngOnInit() {
-  }
+
+
+
 @Input()
 Type: string[] = ['basic', 'input', 'drag']
 

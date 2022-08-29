@@ -18,6 +18,7 @@ import { MatListModule } from '@angular/material/list';
 import {MatChipsModule, MAT_CHIPS_DEFAULT_OPTIONS} from '@angular/material/chips';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 
+import { MatExpansionModule } from '@angular/material/expansion';
 
 
 
@@ -31,9 +32,13 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { ButtonToggleComponent } from './button-toggle/button-toggle.component';
 import { ChipListComponent } from './chip-list/chip-list.component';
 import { ENTER, COMMA } from '@angular/cdk/keycodes';
+import { ExpansionPanelComponent } from './expansion-panel/expansion-panel.component';
+import {MatAccordion} from '@angular/material/expansion';
+import { MAT_RIPPLE_GLOBAL_OPTIONS, RippleGlobalOptions } from '@angular/material/core/ripple/ripple';
 
+};
 @NgModule({
-  declarations: [	
+  declarations: [		
     AppComponent,
     ProgressBarComponent,
     StepperComponent,
@@ -41,36 +46,29 @@ import { ENTER, COMMA } from '@angular/cdk/keycodes';
     ListComponent,
     ButtonComponent,
     ButtonToggleComponent,
-      ChipListComponent
+      ChipListComponent,
+      ExpansionPanelComponent
    ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MatProgressBarModule,
-    MatStepperModule,
-    MatFormFieldModule,
-    MatInputModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatIconModule,
-    NoopAnimationsModule,
-    MatCardModule,
-    MatButtonModule,
+
     DemoMaterialModule,
-    MetricContainerModule,
-    MatListModule,
-    MatButtonToggleModule,
-    MatChipsModule,
-    DragDropModule
+
 
   ],
+
+  
+
   providers: [
-    { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
+      { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'outline' } },
     {
       provide: MAT_CHIPS_DEFAULT_OPTIONS,
       useValue: {
         separatorKeyCodes: [ENTER, COMMA]
       }
+    },
+
   ],
   bootstrap: [AppComponent]
 })

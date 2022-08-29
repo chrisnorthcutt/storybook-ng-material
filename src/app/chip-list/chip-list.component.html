@@ -1,24 +1,27 @@
 <div class="mat-typography">
-<mat-form-field *ngIf="Type === 'input'" class="example-chip-list" appearance="fill">
-  <mat-label>Favorite Fruits</mat-label>
-  <mat-chip-list #chipList aria-label="Fruit selection">
-    <mat-chip *ngFor="let fruit of fruits" (removed)="remove(fruit)">
-      {{fruit.name}}
-      <mat-icon matChipRemove >cancel</mat-icon>
-    </mat-chip>
-    <input placeholder="New fruit..."
-           [matChipInputFor]="chipList"
-           [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-           [matChipInputAddOnBlur]="addOnBlur"
-           (matChipInputTokenEnd)="add($event)">
-  </mat-chip-list>
-</mat-form-field>
 
 
-<mat-chip-list *ngIf="Type === 'basic'" aria-label="Fish selection">
-  <mat-chip>Basic</mat-chip>
-  <mat-chip color="primary" selected>Primary</mat-chip>
-  <mat-chip color="accent" selected>Accent</mat-chip>
+
+  <mat-form-field *ngIf="Type === 'input'" class="example-chip-list">
+    <mat-label>Favorite Fruits</mat-label>
+    <mat-chip-list #chipList aria-label="Fruit selection">
+      <mat-chip *ngFor="let fruit of fruits" selectable
+               removable (removed)="remove(fruit)">
+        {{fruit.name}}
+        <mat-icon matChipRemove>cancel</mat-icon>
+      </mat-chip>
+      <input placeholder="New fruit..."
+             [matChipInputFor]="chipList"
+             matChipInputAddOnBlur
+             (matChipInputTokenEnd)="add($event)">
+    </mat-chip-list>
+  </mat-form-field>
+
+
+<mat-chip-list *ngIf="Type === 'basic'" aria-label="Fish selection" [selectable]="false" >
+  <mat-basic-chip color="yellow" disableRipple >Basic <mat-icon matChipTrailingIcon>save</mat-icon></mat-basic-chip>
+  <mat-basic-chip color="primary" disableRipple >Primary</mat-basic-chip>
+  <mat-basic-chip color="accent" disableRipple>Accent</mat-basic-chip>
 </mat-chip-list>
 
 <mat-chip-list *ngIf="Type === 'drag'"

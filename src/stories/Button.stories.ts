@@ -47,21 +47,6 @@ export interface PropsOptions {
   prefix?: string;
 }
 
-Primary.parameters = {
-  preview: [
-      {
-          tab: "Angular",
-          template: previewTemplate`
-          <button
-          ${ANGULAR_PROPS_TEMPLATE(["gy", "mat-raised-button"], { indent: 4 })}
-              ></button>
-          `,
-          language: "html",
-          copy: true,
-          codesandbox: DEFAULT_ANGULAR_CODESANDBOX(["@egjs/infinitegrid"]),
-      },
-  ],
-};
 export const Secondary = Template.bind({});
 Secondary.args = {
   Label: 'Secondary',

@@ -3,12 +3,12 @@
     "interfaces": [
         {
             "name": "Fruit",
-            "id": "interface-Fruit-bdf6169a196bdf292f6f6df6527bc4452a72f7a3dce80c91b0eca18067daf9b8eb4032e43774ae63d8e0dbb1e0975a0ffab8c91e3efadeeb9b071dac06595960",
+            "id": "interface-Fruit-18a5a89e744e13d74fab76f782026294b848694477bf5ef0f2f5c920a32ca86c4cee6c0f95efa556bb9c62ef2c6251651c54ece44d0fdd4abbfb2a1a6a6f3aea",
             "file": "src/app/chip-list/chip-list.component.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport {COMMA, ENTER} from '@angular/cdk/keycodes';\nimport {MatChipInputEvent} from '@angular/material/chips';\nimport {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';\n\nexport interface Fruit {\n  name: string;\n}\nexport interface Vegetable {\n  name: string;\n}\n\n@Component({\n  selector: 'app-chip-list',\n  templateUrl: './chip-list.component.html',\n  styleUrls: ['./chip-list.component.scss']\n})\nexport class ChipListComponent implements OnInit {\n  addOnBlur = true;\n  readonly separatorKeysCodes = [ENTER, COMMA] as const;\n  fruits: Fruit[] = [{name: 'Lemon'}, {name: 'Lime'}, {name: 'Apple'}];\n\n  add(event: MatChipInputEvent): void {\n    const value = (event.value || '').trim();\n\n    // Add our fruit\n    if (value) {\n      this.fruits.push({name: value});\n    }\n\n    // Clear the input value\n\n    if (event.input) {\n      event.input.value = '';\n    }\n  }\n\n  remove(fruit: Fruit): void {\n    const index = this.fruits.indexOf(fruit);\n\n    if (index >= 0) {\n      this.fruits.splice(index, 1);\n    }\n  }\n  constructor() { }\n\n  ngOnInit() {\n  }\n@Input()\nType: string[] = ['basic', 'input', 'drag']\n\n\nvegetables: Vegetable[] = [\n  {name: 'apple'},\n  {name: 'banana'},\n  {name: 'strawberry'},\n  {name: 'orange'},\n  {name: 'kiwi'},\n  {name: 'cherry'},\n];\n\ndrop(event: CdkDragDrop<Vegetable[]>) {\n  moveItemInArray(this.vegetables, event.previousIndex, event.currentIndex);\n}\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport {COMMA, ENTER} from '@angular/cdk/keycodes';\nimport {MatChipInputEvent} from '@angular/material/chips';\nimport {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';\n\nexport interface Fruit {\n  name: string;\n}\nexport interface Vegetable {\n  name: string;\n}\n\n@Component({\n  selector: 'app-chip-list',\n  templateUrl: './chip-list.component.html',\n  styleUrls: ['./chip-list.component.scss']\n})\nexport class ChipListComponent {\n  addOnBlur = true;\n  readonly separatorKeysCodes = [ENTER, COMMA] as const;\n  fruits: Fruit[] = [{name: 'Lemon'}, {name: 'Lime'}, {name: 'Apple'}];\n\n  add(event: MatChipInputEvent): void {\n    const value = (event.value || '').trim();\n\n    // Add our fruit\n    if (value) {\n      this.fruits.push({name: value});\n    }\n\n    // Clear the input value\n    event.input.value = \"\";\n  }\n\n  remove(fruit: Fruit): void {\n    const index = this.fruits.indexOf(fruit);\n\n    if (index >= 0) {\n      this.fruits.splice(index, 1);\n    }\n  }\n\n\n\n\n@Input()\nType: string[] = ['basic', 'input', 'drag']\n\n\nvegetables: Vegetable[] = [\n  {name: 'apple'},\n  {name: 'banana'},\n  {name: 'strawberry'},\n  {name: 'orange'},\n  {name: 'kiwi'},\n  {name: 'cherry'},\n];\n\ndrop(event: CdkDragDrop<Vegetable[]>) {\n  moveItemInArray(this.vegetables, event.previousIndex, event.currentIndex);\n}\n}\n",
             "properties": [
                 {
                     "name": "name",
@@ -18,6 +18,47 @@
                     "optional": false,
                     "description": "",
                     "line": 7
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 165,
+            "methods": []
+        },
+        {
+            "name": "PropsOptions",
+            "id": "interface-PropsOptions-58741918425bebf5dfa8f22daad0e675f449029c6f0094ea5857f844c3566c0a774aef1bb8c0512d128e8758affde10138d2d99156e18244b2b1aef3f6f2779e",
+            "file": "src/stories/Button.stories.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { Story, Meta } from '@storybook/angular/types-6-0';\nimport { ButtonComponent } from '../app/button/button.component';\nimport { MatButtonModule } from '@angular/material/button';\nimport { MatIconModule } from '@angular/material/icon';\nimport { moduleMetadata } from '@storybook/angular';\nimport { previewTemplate, DEFAULT_ANGULAR_CODESANDBOX } from 'storybook-addon-preview';\n\n\n\n// More on default export: https://storybook.js.org/docs/angular/writing-stories/introduction#default-export\nexport default {\n  title: 'Angular Material/Button',\n  component: ButtonComponent,\n  // More on argTypes: https://storybook.js.org/docs/angular/api/argtypes\n  argTypes: {\n    Label: { control: 'text' },\n    Type: { control: 'select', options: ['mat-raised-button', 'mat-stroked-button', 'mat-button'], table: {disable: true} },\n    Disabled: {control: 'boolean'},\n    iconLeft: {control: 'boolean'},\n    iconRight: {control: 'boolean'}\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [MatButtonModule,MatIconModule],\n    }),\n  ],\n} as Meta;\n\n// More on component templates: https://storybook.js.org/docs/angular/writing-stories/introduction#using-args\nconst Template: Story<ButtonComponent> = (args: ButtonComponent) => ({\n  props: args,\n});\n\nexport const Primary = Template.bind({});\nPrimary.args = {\n  Label: 'Primary',\n  Type: 'mat-raised-button',\n  Disabled: false,\n  iconLeft: false,\n  iconRight: false\n};\n\nexport interface PropsOptions {\n  indent?: number;\n  wrap?: string;\n  prefix?: string;\n}\n\nexport const Secondary = Template.bind({});\nSecondary.args = {\n  Label: 'Secondary',\n  Type: 'mat-stroked-button',\n  Disabled: false,\n  iconLeft: false,\n  iconRight: false\n};\nexport const Action = Template.bind({});\nAction.args = {\n  Label: 'Action',\n  Type: 'mat-button',\n  Disabled: false,\n  iconLeft: false,\n  iconRight: false\n};\n\n\n\n\n\nfunction ANGULAR_PROPS_TEMPLATE(arg0: string[], arg1: { indent: number; }): any {\n  throw new Error('Function not implemented.');\n}\n\n",
+            "properties": [
+                {
+                    "name": "indent",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": true,
+                    "description": "",
+                    "line": 45
+                },
+                {
+                    "name": "prefix",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": true,
+                    "description": "",
+                    "line": 47
+                },
+                {
+                    "name": "wrap",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": true,
+                    "description": "",
+                    "line": 46
                 }
             ],
             "indexSignatures": [],
@@ -38,12 +79,12 @@
         },
         {
             "name": "Vegetable",
-            "id": "interface-Vegetable-bdf6169a196bdf292f6f6df6527bc4452a72f7a3dce80c91b0eca18067daf9b8eb4032e43774ae63d8e0dbb1e0975a0ffab8c91e3efadeeb9b071dac06595960",
+            "id": "interface-Vegetable-18a5a89e744e13d74fab76f782026294b848694477bf5ef0f2f5c920a32ca86c4cee6c0f95efa556bb9c62ef2c6251651c54ece44d0fdd4abbfb2a1a6a6f3aea",
             "file": "src/app/chip-list/chip-list.component.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport {COMMA, ENTER} from '@angular/cdk/keycodes';\nimport {MatChipInputEvent} from '@angular/material/chips';\nimport {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';\n\nexport interface Fruit {\n  name: string;\n}\nexport interface Vegetable {\n  name: string;\n}\n\n@Component({\n  selector: 'app-chip-list',\n  templateUrl: './chip-list.component.html',\n  styleUrls: ['./chip-list.component.scss']\n})\nexport class ChipListComponent implements OnInit {\n  addOnBlur = true;\n  readonly separatorKeysCodes = [ENTER, COMMA] as const;\n  fruits: Fruit[] = [{name: 'Lemon'}, {name: 'Lime'}, {name: 'Apple'}];\n\n  add(event: MatChipInputEvent): void {\n    const value = (event.value || '').trim();\n\n    // Add our fruit\n    if (value) {\n      this.fruits.push({name: value});\n    }\n\n    // Clear the input value\n\n    if (event.input) {\n      event.input.value = '';\n    }\n  }\n\n  remove(fruit: Fruit): void {\n    const index = this.fruits.indexOf(fruit);\n\n    if (index >= 0) {\n      this.fruits.splice(index, 1);\n    }\n  }\n  constructor() { }\n\n  ngOnInit() {\n  }\n@Input()\nType: string[] = ['basic', 'input', 'drag']\n\n\nvegetables: Vegetable[] = [\n  {name: 'apple'},\n  {name: 'banana'},\n  {name: 'strawberry'},\n  {name: 'orange'},\n  {name: 'kiwi'},\n  {name: 'cherry'},\n];\n\ndrop(event: CdkDragDrop<Vegetable[]>) {\n  moveItemInArray(this.vegetables, event.previousIndex, event.currentIndex);\n}\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport {COMMA, ENTER} from '@angular/cdk/keycodes';\nimport {MatChipInputEvent} from '@angular/material/chips';\nimport {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';\n\nexport interface Fruit {\n  name: string;\n}\nexport interface Vegetable {\n  name: string;\n}\n\n@Component({\n  selector: 'app-chip-list',\n  templateUrl: './chip-list.component.html',\n  styleUrls: ['./chip-list.component.scss']\n})\nexport class ChipListComponent {\n  addOnBlur = true;\n  readonly separatorKeysCodes = [ENTER, COMMA] as const;\n  fruits: Fruit[] = [{name: 'Lemon'}, {name: 'Lime'}, {name: 'Apple'}];\n\n  add(event: MatChipInputEvent): void {\n    const value = (event.value || '').trim();\n\n    // Add our fruit\n    if (value) {\n      this.fruits.push({name: value});\n    }\n\n    // Clear the input value\n    event.input.value = \"\";\n  }\n\n  remove(fruit: Fruit): void {\n    const index = this.fruits.indexOf(fruit);\n\n    if (index >= 0) {\n      this.fruits.splice(index, 1);\n    }\n  }\n\n\n\n\n@Input()\nType: string[] = ['basic', 'input', 'drag']\n\n\nvegetables: Vegetable[] = [\n  {name: 'apple'},\n  {name: 'banana'},\n  {name: 'strawberry'},\n  {name: 'orange'},\n  {name: 'kiwi'},\n  {name: 'cherry'},\n];\n\ndrop(event: CdkDragDrop<Vegetable[]>) {\n  moveItemInArray(this.vegetables, event.previousIndex, event.currentIndex);\n}\n}\n",
             "properties": [
                 {
                     "name": "name",
@@ -241,7 +282,7 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<button mat-raised-button *ngIf=\"Type === 'mat-raised-button'\" color=\"primary\" disabled={{Disabled}}><mat-icon *ngIf=\"iconLeft\">save</mat-icon>{{Label}}<mat-icon *ngIf=\"iconRight\">save</mat-icon></button>\n<button mat-stroked-button *ngIf=\"Type === 'mat-stroked-button'\" color=\"primary\" disabled={{Disabled}}><mat-icon *ngIf=\"iconLeft\">save</mat-icon>{{Label}}<mat-icon *ngIf=\"iconRight\">save</mat-icon></button>\n<button mat-button *ngIf=\"Type === 'mat-button'\" color=\"primary\" disabled={{Disabled}}><mat-icon *ngIf=\"iconLeft\">save</mat-icon>{{Label}}<mat-icon *ngIf=\"iconRight\">save</mat-icon></button>\n  "
+            "templateData": "<button mat-raised-button *ngIf=\"Type === 'mat-raised-button'\" color=\"primary\" disabled={{Disabled}}><mat-icon *ngIf=\"iconLeft\">save</mat-icon>{{Label}}<mat-icon *ngIf=\"iconRight\">save</mat-icon></button>\n<button mat-stroked-button *ngIf=\"Type === 'mat-stroked-button'\" color=\"basic\" disabled={{Disabled}}><mat-icon *ngIf=\"iconLeft\">save</mat-icon>{{Label}}<mat-icon *ngIf=\"iconRight\">save</mat-icon></button>\n<button mat-button *ngIf=\"Type === 'mat-button'\" color=\"primary\" disabled={{Disabled}}><mat-icon *ngIf=\"iconLeft\">save</mat-icon>{{Label}}<mat-icon *ngIf=\"iconRight\">save</mat-icon></button>\n  "
         },
         {
             "name": "ButtonToggleComponent",
@@ -384,7 +425,7 @@
         },
         {
             "name": "ChipListComponent",
-            "id": "component-ChipListComponent-bdf6169a196bdf292f6f6df6527bc4452a72f7a3dce80c91b0eca18067daf9b8eb4032e43774ae63d8e0dbb1e0975a0ffab8c91e3efadeeb9b071dac06595960",
+            "id": "component-ChipListComponent-18a5a89e744e13d74fab76f782026294b848694477bf5ef0f2f5c920a32ca86c4cee6c0f95efa556bb9c62ef2c6251651c54ece44d0fdd4abbfb2a1a6a6f3aea",
             "file": "src/app/chip-list/chip-list.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -406,7 +447,7 @@
                     "defaultValue": "['basic', 'input', 'drag']",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 50,
+                    "line": 47,
                     "type": "string[]",
                     "decorators": []
                 }
@@ -454,7 +495,7 @@
                     "type": "Vegetable[]",
                     "optional": false,
                     "description": "",
-                    "line": 53
+                    "line": 50
                 }
             ],
             "methodsClass": [
@@ -499,7 +540,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 62,
+                    "line": 59,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -515,16 +556,6 @@
                     ]
                 },
                 {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 47,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                },
-                {
                     "name": "remove",
                     "args": [
                         {
@@ -537,7 +568,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 38,
+                    "line": 35,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -560,12 +591,146 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport {COMMA, ENTER} from '@angular/cdk/keycodes';\nimport {MatChipInputEvent} from '@angular/material/chips';\nimport {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';\n\nexport interface Fruit {\n  name: string;\n}\nexport interface Vegetable {\n  name: string;\n}\n\n@Component({\n  selector: 'app-chip-list',\n  templateUrl: './chip-list.component.html',\n  styleUrls: ['./chip-list.component.scss']\n})\nexport class ChipListComponent implements OnInit {\n  addOnBlur = true;\n  readonly separatorKeysCodes = [ENTER, COMMA] as const;\n  fruits: Fruit[] = [{name: 'Lemon'}, {name: 'Lime'}, {name: 'Apple'}];\n\n  add(event: MatChipInputEvent): void {\n    const value = (event.value || '').trim();\n\n    // Add our fruit\n    if (value) {\n      this.fruits.push({name: value});\n    }\n\n    // Clear the input value\n\n    if (event.input) {\n      event.input.value = '';\n    }\n  }\n\n  remove(fruit: Fruit): void {\n    const index = this.fruits.indexOf(fruit);\n\n    if (index >= 0) {\n      this.fruits.splice(index, 1);\n    }\n  }\n  constructor() { }\n\n  ngOnInit() {\n  }\n@Input()\nType: string[] = ['basic', 'input', 'drag']\n\n\nvegetables: Vegetable[] = [\n  {name: 'apple'},\n  {name: 'banana'},\n  {name: 'strawberry'},\n  {name: 'orange'},\n  {name: 'kiwi'},\n  {name: 'cherry'},\n];\n\ndrop(event: CdkDragDrop<Vegetable[]>) {\n  moveItemInArray(this.vegetables, event.previousIndex, event.currentIndex);\n}\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport {COMMA, ENTER} from '@angular/cdk/keycodes';\nimport {MatChipInputEvent} from '@angular/material/chips';\nimport {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';\n\nexport interface Fruit {\n  name: string;\n}\nexport interface Vegetable {\n  name: string;\n}\n\n@Component({\n  selector: 'app-chip-list',\n  templateUrl: './chip-list.component.html',\n  styleUrls: ['./chip-list.component.scss']\n})\nexport class ChipListComponent {\n  addOnBlur = true;\n  readonly separatorKeysCodes = [ENTER, COMMA] as const;\n  fruits: Fruit[] = [{name: 'Lemon'}, {name: 'Lime'}, {name: 'Apple'}];\n\n  add(event: MatChipInputEvent): void {\n    const value = (event.value || '').trim();\n\n    // Add our fruit\n    if (value) {\n      this.fruits.push({name: value});\n    }\n\n    // Clear the input value\n    event.input.value = \"\";\n  }\n\n  remove(fruit: Fruit): void {\n    const index = this.fruits.indexOf(fruit);\n\n    if (index >= 0) {\n      this.fruits.splice(index, 1);\n    }\n  }\n\n\n\n\n@Input()\nType: string[] = ['basic', 'input', 'drag']\n\n\nvegetables: Vegetable[] = [\n  {name: 'apple'},\n  {name: 'banana'},\n  {name: 'strawberry'},\n  {name: 'orange'},\n  {name: 'kiwi'},\n  {name: 'cherry'},\n];\n\ndrop(event: CdkDragDrop<Vegetable[]>) {\n  moveItemInArray(this.vegetables, event.previousIndex, event.currentIndex);\n}\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
                     "data": ".example-chip-list {\n    width: 100%;\n    max-width: 600px;\n}\n\n.example-box.cdk-drag-animating {\n    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);\n  }\n  \n  .example-chip .cdk-drop-list-dragging {\n    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);\n  }",
                     "styleUrl": "./chip-list.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<div class=\"mat-typography\">\n\n\n\n  <mat-form-field *ngIf=\"Type === 'input'\" class=\"example-chip-list\">\n    <mat-label>Favorite Fruits</mat-label>\n    <mat-chip-list #chipList aria-label=\"Fruit selection\">\n      <mat-chip *ngFor=\"let fruit of fruits\" selectable\n               removable (removed)=\"remove(fruit)\">\n        {{fruit.name}}\n        <mat-icon matChipRemove>cancel</mat-icon>\n      </mat-chip>\n      <input placeholder=\"New fruit...\"\n             [matChipInputFor]=\"chipList\"\n             matChipInputAddOnBlur\n             (matChipInputTokenEnd)=\"add($event)\">\n    </mat-chip-list>\n  </mat-form-field>\n\n\n<mat-chip-list *ngIf=\"Type === 'basic'\" aria-label=\"Fish selection\" [selectable]=\"false\" >\n  <mat-basic-chip color=\"yellow\" disableRipple >Basic <mat-icon matChipTrailingIcon>save</mat-icon></mat-basic-chip>\n  <mat-basic-chip color=\"primary\" disableRipple >Primary</mat-basic-chip>\n  <mat-basic-chip color=\"accent\" disableRipple>Accent</mat-basic-chip>\n</mat-chip-list>\n\n<mat-chip-list *ngIf=\"Type === 'drag'\"\n  class=\"example-chip\"\n  cdkDropList \n  cdkDropListOrientation=\"horizontal\"\n  (cdkDropListDropped)=\"drop($event)\">\n  <mat-chip\n    class=\"example-box\"\n    cdkDrag\n    *ngFor=\"let vegetable of vegetables\">\n    {{vegetable.name}}\n  </mat-chip>\n</mat-chip-list>\n</div>"
+        },
+        {
+            "name": "ExpansionPanelComponent",
+            "id": "component-ExpansionPanelComponent-db4b2b2f759245bcb541b52eff8736f36e01108e2e805ad97ec76ce261717f322256d96ac7a9330ce5fe88526b55b906983fcc715a38898ab5c1b8a5774b542a",
+            "file": "src/app/expansion-panel/expansion-panel.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-expansion-panel",
+            "styleUrls": [
+                "./expansion-panel.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./expansion-panel.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "isProgressive",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "boolean",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "accordion",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "MatAccordion",
+                    "optional": false,
+                    "description": "",
+                    "line": 17,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "MatAccordion"
+                        }
+                    ]
+                },
+                {
+                    "name": "step",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 19
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "nextStep",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 25,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 15,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "prevStep",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 29,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "setStep",
+                    "args": [
+                        {
+                            "name": "index",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 21,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "index",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnInit, ViewChild } from '@angular/core';\nimport { MatAccordion } from '@angular/material/expansion';\n\n\n@Component({\n  selector: 'app-expansion-panel',\n  templateUrl: './expansion-panel.component.html',\n  styleUrls: ['./expansion-panel.component.scss']\n})\nexport class ExpansionPanelComponent implements OnInit {\n@Input()\nisProgressive: boolean;\n  constructor() { }\n\n  ngOnInit() {\n  }\n  @ViewChild(MatAccordion) accordion: MatAccordion;\n\n  step = 0;\n\n  setStep(index: number) {\n    this.step = index;\n  }\n\n  nextStep() {\n    this.step++;\n  }\n\n  prevStep() {\n    this.step--;\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "\n.example-action-buttons {\n    padding-bottom: 20px;\n  }\n  \n  .example-headers-align .mat-expansion-panel-header-title,\n  .example-headers-align .mat-expansion-panel-header-description {\n    flex-basis: 0;\n  }\n  \n  .example-headers-align .mat-expansion-panel-header-description {\n    justify-content: space-between;\n    align-items: center;\n  }\n  \n  .example-headers-align .mat-form-field + .mat-form-field {\n    margin-left: 8px;\n  }",
+                    "styleUrl": "./expansion-panel.component.scss"
                 }
             ],
             "stylesData": "",
@@ -575,12 +740,12 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 44
+                "line": 12
             },
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"mat-typography\">\n<mat-form-field *ngIf=\"Type === 'input'\" class=\"example-chip-list\" appearance=\"fill\">\n  <mat-label>Favorite Fruits</mat-label>\n  <mat-chip-list #chipList aria-label=\"Fruit selection\">\n    <mat-chip *ngFor=\"let fruit of fruits\" (removed)=\"remove(fruit)\">\n      {{fruit.name}}\n      <mat-icon matChipRemove >cancel</mat-icon>\n    </mat-chip>\n    <input placeholder=\"New fruit...\"\n           [matChipInputFor]=\"chipList\"\n           [matChipInputSeparatorKeyCodes]=\"separatorKeysCodes\"\n           [matChipInputAddOnBlur]=\"addOnBlur\"\n           (matChipInputTokenEnd)=\"add($event)\">\n  </mat-chip-list>\n</mat-form-field>\n\n\n<mat-chip-list *ngIf=\"Type === 'basic'\" aria-label=\"Fish selection\">\n  <mat-chip>Basic</mat-chip>\n  <mat-chip color=\"primary\" selected>Primary</mat-chip>\n  <mat-chip color=\"accent\" selected>Accent</mat-chip>\n</mat-chip-list>\n\n<mat-chip-list *ngIf=\"Type === 'drag'\"\n  class=\"example-chip\"\n  cdkDropList \n  cdkDropListOrientation=\"horizontal\"\n  (cdkDropListDropped)=\"drop($event)\">\n  <mat-chip\n    class=\"example-box\"\n    cdkDrag\n    *ngFor=\"let vegetable of vegetables\">\n    {{vegetable.name}}\n  </mat-chip>\n</mat-chip-list>\n</div>"
+            "templateData": "<div *ngIf=\"isProgressive === false\" class=\"example-action-buttons\">\n  <button mat-stroked-button color=\"accent\" (click)=\"accordion.openAll()\">Expand All</button>\n  <span>&nbsp;&nbsp;</span>\n  <button mat-stroked-button color=\"accent\" (click)=\"accordion.closeAll()\">Collapse All</button>\n</div>\n<div *ngIf=\"isProgressive === false\">\n<mat-accordion class=\"example-headers-align\" multi>\n  <mat-expansion-panel>\n    <mat-expansion-panel-header>\n      <mat-panel-title>\n        Personal data\n      </mat-panel-title>\n      <mat-panel-description>\n        Type your name and age\n        <mat-icon>account_circle</mat-icon>\n      </mat-panel-description>\n    </mat-expansion-panel-header>\n\n    <mat-form-field >\n      <mat-label>First name</mat-label>\n      <input matInput>\n    </mat-form-field>\n\n    <mat-form-field >\n      <mat-label>Age</mat-label>\n      <input matInput type=\"number\" min=\"1\">\n    </mat-form-field>\n\n  </mat-expansion-panel>\n  <mat-expansion-panel>\n    <mat-expansion-panel-header>\n      <mat-panel-title>\n        Destination\n      </mat-panel-title>\n      <mat-panel-description>\n        Type the country name\n        <mat-icon>map</mat-icon>\n      </mat-panel-description>\n    </mat-expansion-panel-header>\n\n    <mat-form-field >\n      <mat-label>Country</mat-label>\n      <input matInput>\n    </mat-form-field>\n  </mat-expansion-panel>\n\n  <mat-expansion-panel>\n    <mat-expansion-panel-header>\n      <mat-panel-title>\n        Day of the trip\n      </mat-panel-title>\n      <mat-panel-description>\n        Inform the date you wish to travel\n        <mat-icon>date_range</mat-icon>\n      </mat-panel-description>\n    </mat-expansion-panel-header>\n\n    <mat-form-field >\n      <mat-label>Date</mat-label>\n      <input matInput [matDatepicker]=\"picker\" (focus)=\"picker.open()\" readonly>\n    </mat-form-field>\n    <mat-datepicker #picker></mat-datepicker>\n  </mat-expansion-panel>\n</mat-accordion>\n</div>\n<div *ngIf=\"isProgressive === true\">\n<mat-accordion class=\"example-headers-align\">\n  <mat-expansion-panel [expanded]=\"step === 0\" (opened)=\"setStep(0)\" hideToggle>\n    <mat-expansion-panel-header>\n      <mat-panel-title>\n        Personal data\n      </mat-panel-title>\n      <mat-panel-description>\n        Type your name and age\n        <mat-icon>account_circle</mat-icon>\n      </mat-panel-description>\n    </mat-expansion-panel-header>\n\n    <mat-form-field>\n      <mat-label>First name</mat-label>\n      <input matInput>\n    </mat-form-field>\n\n    <mat-form-field>\n      <mat-label>Age</mat-label>\n      <input matInput type=\"number\" min=\"1\">\n    </mat-form-field>\n    <mat-action-row>\n      <button mat-button color=\"primary\" (click)=\"nextStep()\">Next</button>\n    </mat-action-row>\n  </mat-expansion-panel>\n\n  <mat-expansion-panel [expanded]=\"step === 1\" (opened)=\"setStep(1)\" hideToggle>\n    <mat-expansion-panel-header>\n      <mat-panel-title>\n        Destination\n      </mat-panel-title>\n      <mat-panel-description>\n        Type the country name\n        <mat-icon>map</mat-icon>\n      </mat-panel-description>\n    </mat-expansion-panel-header>\n\n    <mat-form-field>\n      <mat-label>Country</mat-label>\n      <input matInput>\n    </mat-form-field>\n\n    <mat-action-row>\n      <button mat-button color=\"warn\" (click)=\"prevStep()\">Previous</button>\n      <button mat-button color=\"primary\" (click)=\"nextStep()\">Next</button>\n    </mat-action-row>\n  </mat-expansion-panel>\n\n  <mat-expansion-panel [expanded]=\"step === 2\" (opened)=\"setStep(2)\" hideToggle>\n    <mat-expansion-panel-header>\n      <mat-panel-title>\n        Day of the trip\n      </mat-panel-title>\n      <mat-panel-description>\n        Inform the date you wish to travel\n        <mat-icon>date_range</mat-icon>\n      </mat-panel-description>\n    </mat-expansion-panel-header>\n\n    <mat-form-field>\n      <mat-label>Date</mat-label>\n      <input matInput [matDatepicker]=\"picker\" (focus)=\"picker.open()\" readonly>\n    </mat-form-field>\n    <mat-datepicker #picker></mat-datepicker>\n\n    <mat-action-row>\n      <button mat-button color=\"warn\" (click)=\"prevStep()\">Previous</button>\n      <button mat-button color=\"primary\" (click)=\"nextStep()\">End</button>\n    </mat-action-row>\n  </mat-expansion-panel>\n\n</mat-accordion></div>"
         },
         {
             "name": "ListComponent",
@@ -1080,13 +1245,13 @@
     "modules": [
         {
             "name": "AppModule",
-            "id": "module-AppModule-8105731902948cfe2d2c382a01b8ec58454ae5ee4cadc7e0428f9f6a73d0de3128a57199168dcde82246dcdafed6008d391dc92475f08762f1cca2cc7a4014d9",
+            "id": "module-AppModule-b5650e713da2b7f39f85c30017fdb8db7a129dacc9592c322f5b76042cbd9dc7c1dca56e6373a6cb20083dbcb5f6e589b1b0a00af18e2a3d136beb6abc1e1a63",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/app.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\n\nimport { AppComponent } from './app.component';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { NoopAnimationsModule } from '@angular/platform-browser/animations';\nimport { ProgressBarComponent } from './progress-bar/progress-bar.component';\nimport {MatProgressBarModule} from '@angular/material/progress-bar';\nimport { StepperComponent } from './stepper/stepper.component';\nimport {MatStepperModule} from '@angular/material/stepper';\nimport {MatInputModule} from '@angular/material/input';\nimport { MatIconModule } from '@angular/material/icon';\nimport {MatCardModule} from '@angular/material/card';\nimport { MatButtonModule } from '@angular/material/button';\nimport {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';\nimport { DemoMaterialModule } from './material.module';\nimport { MatListModule } from '@angular/material/list';\nimport {MatChipsModule, MAT_CHIPS_DEFAULT_OPTIONS} from '@angular/material/chips';\nimport {DragDropModule} from '@angular/cdk/drag-drop';\n\n\n\n\nimport {MatFormFieldModule} from '@angular/material/form-field'; \nimport { FormsModule, ReactiveFormsModule} from '@angular/forms';\nimport { CardComponent } from './card/card.component' \nimport { MetricContainerModule } from './metric-container';\nimport { ListComponent } from './list/list.component';\nimport { ButtonComponent } from './button/button.component';\nimport { MatButtonToggleModule } from '@angular/material/button-toggle';\nimport { ButtonToggleComponent } from './button-toggle/button-toggle.component';\nimport { ChipListComponent } from './chip-list/chip-list.component';\nimport { ENTER, COMMA } from '@angular/cdk/keycodes';\n\n@NgModule({\n  declarations: [\t\n    AppComponent,\n    ProgressBarComponent,\n    StepperComponent,\n    CardComponent,\n    ListComponent,\n    ButtonComponent,\n    ButtonToggleComponent,\n      ChipListComponent\n   ],\n  imports: [\n    BrowserModule,\n    BrowserAnimationsModule,\n    MatProgressBarModule,\n    MatStepperModule,\n    MatFormFieldModule,\n    MatInputModule,\n    FormsModule,\n    ReactiveFormsModule,\n    MatIconModule,\n    NoopAnimationsModule,\n    MatCardModule,\n    MatButtonModule,\n    DemoMaterialModule,\n    MetricContainerModule,\n    MatListModule,\n    MatButtonToggleModule,\n    MatChipsModule,\n    DragDropModule\n\n  ],\n  providers: [\n    { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },\n    {\n      provide: MAT_CHIPS_DEFAULT_OPTIONS,\n      useValue: {\n        separatorKeyCodes: [ENTER, COMMA]\n      }\n  ],\n  bootstrap: [AppComponent]\n})\nexport class AppModule { }\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\n\nimport { AppComponent } from './app.component';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { NoopAnimationsModule } from '@angular/platform-browser/animations';\nimport { ProgressBarComponent } from './progress-bar/progress-bar.component';\nimport {MatProgressBarModule} from '@angular/material/progress-bar';\nimport { StepperComponent } from './stepper/stepper.component';\nimport {MatStepperModule} from '@angular/material/stepper';\nimport {MatInputModule} from '@angular/material/input';\nimport { MatIconModule } from '@angular/material/icon';\nimport {MatCardModule} from '@angular/material/card';\nimport { MatButtonModule } from '@angular/material/button';\nimport {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';\nimport { DemoMaterialModule } from './material.module';\nimport { MatListModule } from '@angular/material/list';\nimport {MatChipsModule, MAT_CHIPS_DEFAULT_OPTIONS} from '@angular/material/chips';\nimport {DragDropModule} from '@angular/cdk/drag-drop';\n\nimport { MatExpansionModule } from '@angular/material/expansion';\n\n\n\nimport {MatFormFieldModule} from '@angular/material/form-field'; \nimport { FormsModule, ReactiveFormsModule} from '@angular/forms';\nimport { CardComponent } from './card/card.component' \nimport { MetricContainerModule } from './metric-container';\nimport { ListComponent } from './list/list.component';\nimport { ButtonComponent } from './button/button.component';\nimport { MatButtonToggleModule } from '@angular/material/button-toggle';\nimport { ButtonToggleComponent } from './button-toggle/button-toggle.component';\nimport { ChipListComponent } from './chip-list/chip-list.component';\nimport { ENTER, COMMA } from '@angular/cdk/keycodes';\nimport { ExpansionPanelComponent } from './expansion-panel/expansion-panel.component';\nimport {MatAccordion} from '@angular/material/expansion';\nimport { MAT_RIPPLE_GLOBAL_OPTIONS, RippleGlobalOptions } from '@angular/material/core/ripple/ripple';\n\n};\n@NgModule({\n  declarations: [\t\t\n    AppComponent,\n    ProgressBarComponent,\n    StepperComponent,\n    CardComponent,\n    ListComponent,\n    ButtonComponent,\n    ButtonToggleComponent,\n      ChipListComponent,\n      ExpansionPanelComponent\n   ],\n  imports: [\n    BrowserModule,\n    BrowserAnimationsModule,\n\n    DemoMaterialModule,\n\n\n  ],\n\n  \n\n  providers: [\n      { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'outline' } },\n    {\n      provide: MAT_CHIPS_DEFAULT_OPTIONS,\n      useValue: {\n        separatorKeyCodes: [ENTER, COMMA]\n      }\n    },\n\n  ],\n  bootstrap: [AppComponent]\n})\nexport class AppModule { }\n",
             "children": [
                 {
                     "type": "providers",
@@ -1111,6 +1276,9 @@
                             "name": "ChipListComponent"
                         },
                         {
+                            "name": "ExpansionPanelComponent"
+                        },
+                        {
                             "name": "ListComponent"
                         },
                         {
@@ -1126,9 +1294,6 @@
                     "elements": [
                         {
                             "name": "DemoMaterialModule"
-                        },
-                        {
-                            "name": "MetricContainerModule"
                         }
                     ]
                 },
@@ -1234,6 +1399,16 @@
     "miscellaneous": {
         "variables": [
             {
+                "name": "Action",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "argTypes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -1262,6 +1437,16 @@
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "ListTemplate.bind({})"
+            },
+            {
+                "name": "Basic",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/ExpansionPanel.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
             },
             {
                 "name": "Basic",
@@ -1344,16 +1529,6 @@
                 "defaultValue": "{\n  production: false\n}"
             },
             {
-                "name": "exampleWithKnobs",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "() => ({\n  component: ButtonComponent,\n  props: {\n    Label: text('Label', 'Hello Storybook'), // The first param of the knob function has to be exactly the same as the component input.\n  },\n})"
-            },
-            {
                 "name": "Full",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -1434,6 +1609,26 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Progressive",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/ExpansionPanel.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "Query",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -1451,6 +1646,16 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "literal type"
+            },
+            {
+                "name": "Secondary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
             },
             {
                 "name": "selectionList",
@@ -1486,11 +1691,31 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ButtonComponent>",
+                "defaultValue": "(args: ButtonComponent) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/Card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<CardComponent>",
                 "defaultValue": "(args: CardComponent) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/ExpansionPanel.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ExpansionPanelComponent>",
+                "defaultValue": "(args: ExpansionPanelComponent) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -1543,10 +1768,93 @@
                 "defaultValue": "(args: StepperComponent) => ({\n    props: args,\n  })"
             }
         ],
-        "functions": [],
+        "functions": [
+            {
+                "name": "ANGULAR_PROPS_TEMPLATE",
+                "file": "src/stories/Button.stories.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [
+                    {
+                        "name": "arg0",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "arg1",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "returnType": "any",
+                "jsdoctags": [
+                    {
+                        "name": "arg0",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "arg1",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        ],
         "typealiases": [],
         "enumerations": [],
         "groupedVariables": {
+            "src/stories/Button.stories.ts": [
+                {
+                    "name": "Action",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Secondary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<ButtonComponent>",
+                    "defaultValue": "(args: ButtonComponent) => ({\n  props: args,\n})"
+                }
+            ],
             "src/app/type/type.component.ts": [
                 {
                     "name": "argTypes",
@@ -1631,6 +1939,38 @@
                     "deprecationMessage": "",
                     "type": "Story<ChipListComponent>",
                     "defaultValue": "(args: ChipListComponent) => ({\n\n  props: args,\n})"
+                }
+            ],
+            "src/stories/ExpansionPanel.stories.ts": [
+                {
+                    "name": "Basic",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/ExpansionPanel.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Progressive",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/ExpansionPanel.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/ExpansionPanel.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<ExpansionPanelComponent>",
+                    "defaultValue": "(args: ExpansionPanelComponent) => ({\n  props: args,\n})"
                 }
             ],
             "src/stories/Metriccard.stories.ts": [
@@ -1794,18 +2134,6 @@
                     "defaultValue": "{\n  production: false\n}"
                 }
             ],
-            "src/stories/Button.stories.ts": [
-                {
-                    "name": "exampleWithKnobs",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "() => ({\n  component: ButtonComponent,\n  props: {\n    Label: text('Label', 'Hello Storybook'), // The first param of the knob function has to be exactly the same as the component input.\n  },\n})"
-                }
-            ],
             "src/stories/Card.stories.ts": [
                 {
                     "name": "Full",
@@ -1883,7 +2211,50 @@
                 }
             ]
         },
-        "groupedFunctions": {},
+        "groupedFunctions": {
+            "src/stories/Button.stories.ts": [
+                {
+                    "name": "ANGULAR_PROPS_TEMPLATE",
+                    "file": "src/stories/Button.stories.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "arg0",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "arg1",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "returnType": "any",
+                    "jsdoctags": [
+                        {
+                            "name": "arg0",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "arg1",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
         "groupedEnumerations": {},
         "groupedTypeAliases": {}
     },
@@ -1943,7 +2314,7 @@
                 "linktype": "component",
                 "name": "ChipListComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/11",
+                "coverageCount": "0/9",
                 "status": "low"
             },
             {
@@ -1962,6 +2333,15 @@
                 "name": "Vegetable",
                 "coveragePercent": 0,
                 "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/expansion-panel/expansion-panel.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ExpansionPanelComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
                 "status": "low"
             },
             {
@@ -2071,10 +2451,59 @@
             },
             {
                 "filePath": "src/stories/Button.stories.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "PropsOptions",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Button.stories.ts",
+                "type": "function",
+                "linktype": "miscellaneous",
+                "linksubtype": "function",
+                "name": "ANGULAR_PROPS_TEMPLATE",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Button.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "exampleWithKnobs",
+                "name": "Action",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Secondary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -2135,6 +2564,36 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "ListTemplate",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/ExpansionPanel.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Basic",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/ExpansionPanel.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Progressive",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/ExpansionPanel.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

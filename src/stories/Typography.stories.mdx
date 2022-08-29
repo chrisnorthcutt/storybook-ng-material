@@ -53,23 +53,6 @@ import { TypeComponent } from 'src/app/type/type.component';
 
 Typography is critical for communicating the hierarchy of a page.
 
-export const typography = {
-  type: {
-    primary: '"Inter", "Helvetica Neue", Helvetica, Arial, sans-serif',
-  },
-  weight: {
-    regular: '500',
-    semiBold: '600',
-    bold: '700'
-  },
-  size: {
-    s1: 12,
-    s2: 14,
-    s3: 16,
-    m1: 20,
-    m2: 24,
-  },
-};
 
 export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
 
@@ -77,38 +60,18 @@ export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing el
 
 **Weights:** 500(regular), 600(semiBold), 700(bold)
 
-<Typeset
-  fontSizes={[
-    Number(typography.size.s1),
-    Number(typography.size.s2),
-    Number(typography.size.s3),
-    Number(typography.size.m1),
-    Number(typography.size.m2),
-  ]}
-  fontWeight={typography.weight.regular}
-  sampleText={[SampleText]}
-  fontFamily={typography.type.primary}
-/>
-
 ## Styles
 
-| Name | Class | Element |
+| Name | Class | HTML Tag |
 | ---- | ---- | ---- |
 | Headline | mat-headline | h1 |
 | Title | mat-title | h2 |
 | Subheading 1 | mat-subheading-1 | h3 |
 | Subheading 2 | mat-subheading-2 | h4 |
-| Body 1 | mat-body-1 | body |
+| Body 1 | mat-body-1 |  |
 | Body 2 | mat-body-2 |  |
 | Caption | mat-caption |  |
+| Overline | mat-overline |  |
 
 
-## Colors
-  <ColorItem
-    title="Text"
-    subtitle="Black"
-    colors={{ HighEmphasis: "hsla(0, 0%, 0%, 0.87)", MediumEmphasis: "hsla(0, 0%, 0%, 0.74)", Disabled: "hsla(0, 0%, 0%, 0.56)" }}
-  />
-
-<ArgsTable of={TypeComponent} />
 

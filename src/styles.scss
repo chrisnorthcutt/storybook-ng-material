@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+<<<<<<< HEAD
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
 @import "~@angular/material/theming";
 @include mat-core();
@@ -11,6 +12,20 @@ body {
   height: 100%;
   color: mat-color($mat-blue-gray, 800);
 }
+=======
+@use '@angular/material' as mat;
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+
+html, body { height: 100%; }
+
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// **Be sure that you only ever include this mixin once!**
+@include mat.core();
+body { margin: 0; }
+>>>>>>> 5b9dd0b7c6c3128941f01f7e392376de449b7f26
 $oc-blue: (
   50: #e6eef3,
   100: #c0d5e2,
@@ -78,11 +93,17 @@ $oc-teal: (
     A700: #000000,
   ),
 );
+<<<<<<< HEAD
 $oc-primary: mat-palette($oc-blue, 500);
 $oc-accent: mat-palette($oc-teal, 900);
+=======
+$my-primary: mat.define-palette($oc-blue, 500);
+$my-accent: mat.define-palette($oc-teal, 900);
+>>>>>>> 5b9dd0b7c6c3128941f01f7e392376de449b7f26
 
 // Material Theme Overrides
 
+<<<<<<< HEAD
 $oc-typography: mat-typography-config(
   $font-family: "'Inter', 'Helvetica Neue', sans-serif",
 );
@@ -115,6 +136,16 @@ $oc-theme: mat-light-theme($oc-primary, $oc-accent);
       }
     }
   }
+=======
+$oc-typography: mat.define-typography-config(
+    $font-family: "'Inter', 'Helvetica Neue', sans-serif",
+  );
+$oc-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $my-primary,
+      accent: $my-accent,
+>>>>>>> 5b9dd0b7c6c3128941f01f7e392376de449b7f26
 
   @return $theme;
 }
@@ -174,9 +205,13 @@ $theme: tweak-material-theme(
   text-transform: uppercase;
 }
 
+<<<<<<< HEAD
 @include angular-material-theme($theme);
+=======
+@include mat.all-component-themes($oc-theme);
+>>>>>>> 5b9dd0b7c6c3128941f01f7e392376de449b7f26
 
-@include angular-material-typography($oc-typography);
+@include mat.all-component-typographies($oc-typography);
 
 //Button Overrides
 

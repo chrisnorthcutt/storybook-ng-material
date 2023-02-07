@@ -2679,7 +2679,7 @@
                 "name": "Basic",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Button-Toggle.stories.ts",
+                "file": "src/stories/Badge.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2689,7 +2689,7 @@
                 "name": "Basic",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Badge.stories.ts",
+                "file": "src/stories/Button-Toggle.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -3170,21 +3170,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Button-Toggle.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<ButtonToggleComponent>",
-                "defaultValue": "(args: ButtonToggleComponent) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/Badge.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "(args) => ({\n  props: args,\n  template: `\n  <button mat-raised-button\n  [matBadge]=\"label\" [matBadgePosition]=\"position\" [matBadgeColor]=\"color\" [matBadgeSize]=\"size\">\nAction\n</button>`\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Button-Toggle.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ButtonToggleComponent>",
+                "defaultValue": "(args: ButtonToggleComponent) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -3210,16 +3210,6 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/ExpansionPanel.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<ExpansionPanelComponent>",
-                "defaultValue": "(args: ExpansionPanelComponent) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/Dialog.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -3230,11 +3220,11 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/List.stories.ts",
+                "file": "src/stories/ExpansionPanel.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<ListComponent>",
-                "defaultValue": "(args: ListComponent) => ({\n  props: args,\n})"
+                "type": "Story<ExpansionPanelComponent>",
+                "defaultValue": "(args: ExpansionPanelComponent) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -3250,11 +3240,11 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Page.stories.ts",
+                "file": "src/stories/List.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<Page>",
-                "defaultValue": "(args: Page) => ({\n  props: args,\n})"
+                "type": "Story<ListComponent>",
+                "defaultValue": "(args: ListComponent) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -3275,6 +3265,16 @@
                 "deprecationMessage": "",
                 "type": "Story<MetricContainerComponent>",
                 "defaultValue": "(args: MetricContainerComponent) => ({\n    template: `    <core-metric-container [icon]=\"icon\">\n    <div title>{{title}}</div>\n    <div metric>{{metric}}</div>\n    <div description>{{description}}</div>\n</core-metric-container>`,\n    props: args,\n  })"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Page.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<Page>",
+                "defaultValue": "(args: Page) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -3330,21 +3330,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Stepper.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<StepperComponent>",
-                "defaultValue": "(args: StepperComponent) => ({\n    props: args,\n  })"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/Snackbar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<SnackbarComponent>",
                 "defaultValue": "(args: SnackbarComponent) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Stepper.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<StepperComponent>",
+                "defaultValue": "(args: StepperComponent) => ({\n    props: args,\n  })"
             },
             {
                 "name": "Template",
@@ -3757,6 +3757,28 @@
                     "defaultValue": "(args: AutocompleteComponent) => ({\n  props: args,\n})"
                 }
             ],
+            "src/stories/Badge.stories.ts": [
+                {
+                    "name": "Basic",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Badge.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Badge.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "(args) => ({\n  props: args,\n  template: `\n  <button mat-raised-button\n  [matBadge]=\"label\" [matBadgePosition]=\"position\" [matBadgeColor]=\"color\" [matBadgeSize]=\"size\">\nAction\n</button>`\n})"
+                }
+            ],
             "src/stories/Button-Toggle.stories.ts": [
                 {
                     "name": "Basic",
@@ -3787,28 +3809,6 @@
                     "deprecationMessage": "",
                     "type": "Story<ButtonToggleComponent>",
                     "defaultValue": "(args: ButtonToggleComponent) => ({\n  props: args,\n})"
-                }
-            ],
-            "src/stories/Badge.stories.ts": [
-                {
-                    "name": "Basic",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Badge.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Badge.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "(args) => ({\n  props: args,\n  template: `\n  <button mat-raised-button\n  [matBadge]=\"label\" [matBadgePosition]=\"position\" [matBadgeColor]=\"color\" [matBadgeSize]=\"size\">\nAction\n</button>`\n})"
                 }
             ],
             "src/stories/Chip.stories.ts": [

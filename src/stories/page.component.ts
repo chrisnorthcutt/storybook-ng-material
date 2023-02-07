@@ -56,17 +56,5 @@ import { User } from './User';
   styleUrls: ['./page.css'],
 })
 export default class PageComponent {
-  user: User | null = null;
-
-  doLogout() {
-    this.user = null;
-  }
-
-  doLogin() {
-    this.user = { name: 'Jane Doe' };
-  }
-
-  doCreateAccount() {
-    this.user = { name: 'Jane Doe' };
-  }
+  
 }

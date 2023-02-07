@@ -38,22 +38,18 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-<<<<<<< HEAD
-    "@angular-devkit/build-angular": "~0.1102.5",
-    "@angular/cli": "~11.2.5",
-    "@angular/compiler-cli": "~11.2.6",
-=======
     "@angular-devkit/build-angular": "^14.1.3",
     "@angular/cli": "^14.1.3",
     "@angular/compiler-cli": "^14.1.3",
->>>>>>> 5b9dd0b7c6c3128941f01f7e392376de449b7f26
     "@babel/core": "^7.17.9",
     "@compodoc/compodoc": "^1.1.19",
-    "@storybook/addon-actions": "^6.2.10",
-    "@storybook/addon-essentials": "^6.2.10",
-    "@storybook/addon-interactions": "^6.2.10",
-    "@storybook/addon-links": "^6.2.10",
-    "@storybook/angular": "^6.2.10",
+    "@storybook/addon-actions": "^6.5.10",
+    "@storybook/addon-essentials": "^6.5.10",
+    "@storybook/addon-interactions": "^6.5.10",
+    "@storybook/addon-links": "^6.5.10",
+    "@storybook/angular": "^6.5.10",
+    "@storybook/builder-webpack5": "^6.5.10",
+    "@storybook/manager-webpack5": "^6.5.10",
     "@storybook/testing-library": "^0.0.13",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
@@ -70,6 +66,7 @@
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
-    "typescript": "~4.6.4"
+    "typescript": "~4.6.4",
+    "webpack": "^5.74.0"
   }
 }

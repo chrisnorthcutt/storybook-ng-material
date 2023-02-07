@@ -4,7 +4,7 @@ import { ProgressBarComponent } from '../app/progress-bar/progress-bar.component
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 export default {
-    title: 'Angular Material/Progressbar',
+    title: 'Base Components/Progressbar',
     component: ProgressBarComponent,
     decorators: [
       moduleMetadata({

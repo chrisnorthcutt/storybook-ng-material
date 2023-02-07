@@ -1,0 +1,159 @@
+// background colors
+$color-bg1: #f5f6f7;
+$color-bg2: #ecedee;
+$color-bg3: #e1e3e5;
+
+// white
+$color-white: #ffffff;
+$color-white-light: rgba($color-white, 0.50);
+$color-white-lighter: rgba($color-white, 0.20);
+$color-white-lightest: rgba($color-white, 0.12);
+
+// black
+$color-black: #000000;
+$color-black-light: rgba($color-black, 0.50);
+$color-black-lighter: rgba($color-black, 0.20);
+$color-black-lightest: rgba($color-black, 0.12);
+
+// ink - should only be used for fonts
+$color-ink-normal: rgba($color-black, 0.87);
+$color-ink-secondary: rgba($color-black, 0.74);
+$color-ink-disabled: rgba($color-black, 0.26);
+
+// gray
+$color-gray: #575c60;
+$color-gray-light: #969ca0;
+$color-gray-lighter: #e7e8e9;
+$color-gray-lightest: #f4f5f5;
+
+// blue
+$color-blue: #2e729f;
+$color-blue-darker:    #1d4764;
+$color-blue-dark:    #0c1d28;
+$color-blue-light:    #75b0d7;
+$color-blue-lighter:    #d8e9f4;
+$color-blue-lightest:    #ecf4fa;
+
+$color-brand-blue: #337daf;
+
+// teal
+$color-teal: #4ac0b2;
+$color-teal-darker: #318d82;
+$color-teal-dark: #1d544d;
+$color-teal-light: #a9e1da;
+$color-teal-lighter: #e1f5f2;
+
+$color-brand-teal: #4ab0b2;
+
+// red
+$color-red: #c84026;
+$color-red-darker: #882b1a;
+$color-red-dark: #47170e;
+$color-red-light: #e89586;
+$color-red-lighter: #f4cdc6;
+
+// yellow
+$color-yellow: #f2be28;
+$color-yellow-darker: #c2930c;
+$color-yellow-dark: #7a5c07;
+$color-yellow-light: #f9e2a0;
+$color-yellow-lighter: #fef8e8;
+
+// green
+$color-green: #58cc88;
+$color-green-darker: #32a562;
+$color-green-dark: #216a3f;
+$color-green-light: #baeace;
+$color-green-lighter: #f4fcf7;
+
+// gradients
+$color-horizontal-gradient: linear-gradient(90deg, $color-brand-blue 0%, $color-brand-teal 100%);
+$color-vertical-gradient: linear-gradient(180deg, $color-brand-blue 0%, $color-brand-teal 100%);
+$color-diagonal-gradient: linear-gradient(135deg, $color-brand-blue 0%, $color-brand-teal 100%);
+
+$color-blue-palette: (50: #e6eef3,
+  100: #c0d5e2,
+  200: #97b9cf,
+  300: #6d9cbc,
+  400: #4d87ad,
+  500: #2e729f,
+  600: #296a97,
+  700: #235f8d,
+  800: #1d5583,
+  900: #124272,
+  A100: #a7d0ff,
+  A200: #74b4ff,
+  A400: #4199ff,
+  A700: #288bff,
+  contrast: (50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #ffffff));
+
+$color-yellow-palette: (50: #fdf7e5,
+  100: #fbecbf,
+  200: #f9df94,
+  300: #f6d269,
+  400: #f4c848,
+  500: #f2be28,
+  600: #f0b824,
+  700: #eeaf1e,
+  800: #eca718,
+  900: #e8990f,
+  A100: #ffffff,
+  A200: #fff3e1,
+  A400: #ffdfae,
+  A700: #ffd595,
+  contrast: (50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
+    900: #000000,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000));
+
+$color-red-palette: (50: #f8e8e5,
+  100: #efc6be,
+  200: #e4a093,
+  300: #d97967,
+  400: #d05d47,
+  500: #c84026,
+  600: #c23a22,
+  700: #bb321c,
+  800: #b42a17,
+  900: #a71c0d,
+  A100: #ffd8d5,
+  A200: #ffa9a2,
+  A400: #ff7a6f,
+  A700: #ff6256,
+  contrast: (50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000));

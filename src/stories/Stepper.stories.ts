@@ -9,7 +9,7 @@ import {DemoMaterialModule} from '../app/material.module';
 import {MatFormFieldModule} from '@angular/material/form-field'; 
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 export default {
-    title: 'Angular Material/Stepper',
+    title: 'Base Components/Stepper',
     component: StepperComponent,
     decorators: [
       moduleMetadata({

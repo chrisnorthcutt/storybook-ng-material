@@ -2,7 +2,7 @@ import { Story, Meta } from '@storybook/angular/types-6-0';
 import { moduleMetadata } from '@storybook/angular';
 import { MetricContainerComponent ,MetricContainerModule } from 'src/app/metric-container';
 export default {
-    title: 'Angular Material/Metric Card',
+    title: 'Base Components/Metric Card',
     component: MetricContainerComponent,
     decorators: [
       moduleMetadata({

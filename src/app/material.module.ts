@@ -22,6 +22,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatListModule} from '@angular/material/list';
@@ -43,6 +44,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   exports: [
@@ -58,6 +60,8 @@ import {OverlayModule} from '@angular/cdk/overlay';
     MatBottomSheetModule,
     MatButtonModule,
     MatButtonToggleModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatCardModule,
     MatCheckboxModule,
     MatChipsModule,
@@ -67,6 +71,7 @@ import {OverlayModule} from '@angular/cdk/overlay';
     MatDividerModule,
     MatExpansionModule,
     MatGridListModule,
+    MatFormFieldModule,
     MatIconModule,
     MatInputModule,
     MatListModule,

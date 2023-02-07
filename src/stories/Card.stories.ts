@@ -8,7 +8,7 @@ import {
   DEFAULT_VANILLA_CODESANDBOX,
 } from 'storybook-addon-preview';
 export default {
-  title: 'Angular Material/Card',
+  title: 'Base Components/Card',
   component: CardComponent,
   decorators: [
     moduleMetadata({
@@ -49,25 +49,25 @@ Full.parameters = {
     {
       tab: 'HTML',
       template: previewTemplate`
-        <mat-card class="example-card">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>${Full.args.Title}</mat-card-title>
-          <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src=${'imageSrc'} alt="Photo of a Shiba Inu">
-        <mat-card-content>
-          <p>
-            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-            bred for hunting.
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button>${Full.args.Action1}</button>
-          <button mat-button>${Full.args.Action2}</button>
-        </mat-card-actions>
-      </mat-card>
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>${Full.args.Title}</mat-card-title>
+    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src=${'imageSrc'} alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <p>
+      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+      bred for hunting.
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>${Full.args.Action1}</button>
+    <button mat-button>${Full.args.Action2}</button>
+  </mat-card-actions>
+</mat-card>
             `,
       language: 'html',
       copy: true,

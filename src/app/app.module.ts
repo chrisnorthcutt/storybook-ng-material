@@ -34,11 +34,19 @@ import { ChipListComponent } from './chip-list/chip-list.component';
 import { ENTER, COMMA } from '@angular/cdk/keycodes';
 import { ExpansionPanelComponent } from './expansion-panel/expansion-panel.component';
 import {MatAccordion} from '@angular/material/expansion';
-import { MAT_RIPPLE_GLOBAL_OPTIONS, RippleGlobalOptions } from '@angular/material/core/ripple/ripple';
+import { MenuComponent } from './menu/menu.component';
+import { FormFieldComponent } from './form-field/form-field.component';
+import { SliderComponent } from './slider/slider.component';
+import { TabsComponent } from './tabs/tabs.component';
+import { SnackbarComponent } from './snackbar/snackbar.component';
+import { AutocompleteComponent } from './autocomplete/autocomplete.component';
+import { PaginatorComponent } from './paginator/paginator.component';
+import { TableComponent } from './table/table.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { DialogComponent } from './dialog/dialog.component';
 
-};
 @NgModule({
-  declarations: [		
+  declarations: [												
     AppComponent,
     ProgressBarComponent,
     StepperComponent,
@@ -47,7 +55,17 @@ import { MAT_RIPPLE_GLOBAL_OPTIONS, RippleGlobalOptions } from '@angular/materia
     ButtonComponent,
     ButtonToggleComponent,
       ChipListComponent,
-      ExpansionPanelComponent
+      ExpansionPanelComponent,
+      MenuComponent,
+      FormFieldComponent,
+      SliderComponent,
+      TabsComponent,
+      SnackbarComponent,
+      AutocompleteComponent,
+      PaginatorComponent,
+      TableComponent,
+      SidenavComponent,
+      DialogComponent
    ],
   imports: [
     BrowserModule,

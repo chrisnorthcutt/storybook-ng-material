@@ -1,0 +1,31 @@
+<mat-tab-group [headerPosition]="Alignment" [backgroundColor]="backgroundColor" *ngIf="Type === 'basic'">
+  <mat-tab label="First"> Content 1 </mat-tab>
+  <mat-tab label="Second"> Content 2 </mat-tab>
+  <mat-tab label="Third"> Content 3 </mat-tab>
+</mat-tab-group>
+<mat-tab-group [headerPosition]="Alignment" [backgroundColor]="backgroundColor" *ngIf="Type === 'icon'">
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">thumb_up</mat-icon>
+      First
+    </ng-template>
+    Content 1
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">thumb_up</mat-icon>
+      Second
+    </ng-template>
+    Content 2
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">thumb_up</mat-icon>
+      Third
+    </ng-template>
+
+    Content 3
+  </mat-tab>
+</mat-tab-group>

@@ -1,0 +1,65 @@
+<mat-radio-group
+  *ngIf="Type === 'radio'"
+  aria-label="Select an option"
+  class="mat-radio-group--vertical"
+>
+  <mat-radio-button value="1" [labelPosition]="labelPos">{{
+    Label
+  }}</mat-radio-button>
+  <mat-radio-button value="2" [labelPosition]="labelPos">{{
+    Label
+  }}</mat-radio-button>
+  <mat-radio-button value="2" disabled [labelPosition]="labelPos"
+    >Disabled</mat-radio-button
+  >
+</mat-radio-group>
+<div *ngIf="Type === 'checkbox'">
+  <section class="example-section">
+    <mat-checkbox class="example-margin" [labelPosition]="labelPos"
+      >Check me!</mat-checkbox
+    >
+    <mat-checkbox
+      class="example-margin"
+      [labelPosition]="labelPos"
+      [disabled]="true"
+      >Disabled</mat-checkbox
+    >
+  </section>
+
+  <section class="example-section">
+    <span class="example-list-section">
+      <mat-checkbox
+        [labelPosition]="labelPos"
+        class="example-margin"
+
+       
+        
+      >
+        Hello
+      </mat-checkbox>
+    </span>
+    <span class="example-list-section">
+      <ul>
+        <li *ngFor="let item of subTasks">
+          <mat-checkbox
+            [labelPosition]="labelPos"
+          >
+           {{ item}}
+          </mat-checkbox>
+        </li>
+       
+      </ul>
+    </span>
+  </section>
+</div>
+<form class="mat-radio-group--vertical" action="" *ngIf="Type === 'toggle'">
+  <mat-slide-toggle [labelPosition]="labelPos" 
+    >Slide me!</mat-slide-toggle
+  >
+  <mat-slide-toggle [labelPosition]="labelPos" checked
+    >I am Checked!</mat-slide-toggle
+  >
+  <mat-slide-toggle [labelPosition]="labelPos" disabled 
+    >I am disabled!</mat-slide-toggle
+  >
+</form>

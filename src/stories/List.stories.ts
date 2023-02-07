@@ -4,10 +4,11 @@ import { ListComponent } from 'src/app/list/list.component';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { moduleMetadata } from '@storybook/angular';
+import { DEFAULT_ANGULAR_CODESANDBOX, previewTemplate } from 'storybook-addon-preview';
 
 // More on default export: https://storybook.js.org/docs/angular/writing-stories/introduction#default-export
 export default {
-  title: 'Angular Material/List',
+  title: 'Base Components/List',
   component: ListComponent,
   // More on argTypes: https://storybook.js.org/docs/angular/api/argtypes
   argTypes: {
@@ -49,12 +50,67 @@ basicList.args = {
   groceryList: ['Bananas', 'Apple', 'Pears']
 };
 
+basicList.parameters = {
+  preview: [
+    {
+      tab: 'HTML',
+      template: previewTemplate`
+<mat-list role="list">
+<div mat-subheader *ngIf="showHeader">{{ headerLabel }}</div>
+  <mat-list-item role="listitem" *ngFor="let item of groceryList">
+    <img
+      matListAvatar
+      *ngIf="showAvatar"
+      src="https://media.istockphoto.com/vectors/thumbnail-image-vector-graphic-vector-id1147544807?k=20&m=1147544807&s=612x612&w=0&h=pBhz1dkwsCMq37Udtp9sfxbjaMl27JUapoyYpQm0anc="
+      alt="..."
+    />
+    <mat-icon *ngIf="!showAvatar" mat-list-icon>restaurant</mat-icon>
+    <h3 matLine>{{ item }}</h3>
+    <h3 matLine>Line 2</h3>
+  </mat-list-item>
+</mat-list>
+          `,
+      language: 'html',
+      copy: true,
+      codesandbox: DEFAULT_ANGULAR_CODESANDBOX(['@egjs/infinitegrid']),
+    },
+  ],
+};
+
+
+
 export const selectionList = Template.bind({});
 selectionList.args = {
   headerLabel: 'Grocery List',
   selectionMultiple: true,
   selectionList: true,
   groceryList: ['Bananas', 'Apple', 'Pears']
+};
+
+selectionList.parameters = {
+  preview: [
+    {
+      tab: 'HTML',
+      template: previewTemplate`
+      <!-- [highlight] highlight html -->
+<mat-selection-list>
+  <div mat-subheader>${ 'headerLabel ' }</div>
+  <mat-list-option *ngFor="let item of groceryList">
+    <img
+    matListAvatar
+    src="https://media.istockphoto.com/vectors/thumbnail-image-vector-graphic-vector-id1147544807?k=20&m=1147544807&s=612x612&w=0&h=pBhz1dkwsCMq37Udtp9sfxbjaMl27JUapoyYpQm0anc="
+    alt="..."
+    />
+  <mat-icon mat-list-icon>restaurant</mat-icon>
+    <h3 matLine>{{ item }}</h3>
+  </mat-list-option>
+</mat-selection-list>
+          `,
+      language: 'html',
+      copy: true,
+      codesandbox: DEFAULT_ANGULAR_CODESANDBOX(['@egjs/infinitegrid']),
+    },
+  ],
 };
 
 export const selectionListSingle = Template.bind({});

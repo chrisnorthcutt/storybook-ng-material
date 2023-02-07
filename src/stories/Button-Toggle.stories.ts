@@ -7,7 +7,7 @@ import { moduleMetadata } from '@storybook/angular';
 
 // More on default export: https://storybook.js.org/docs/angular/writing-stories/introduction#default-export
 export default {
-  title: 'Angular Material/Button Toggle',
+  title: 'Base Components/Button Toggle',
   component: ButtonToggleComponent,
   // More on argTypes: https://storybook.js.org/docs/angular/api/argtypes
   argTypes: {

@@ -1,77 +1,49 @@
-import { Meta, ColorPalette, ColorItem, Typeset, ArgsTable, Canvas,Story } from '@storybook/addon-docs';
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { TypeComponent } from 'src/app/type/type.component';
+import { Meta, Typeset } from '@storybook/addon-docs/blocks';
 
+<Meta title="Foundations/Typography" />
 
-<Meta title="Foundations/Typography" component={TypeComponent} argTypes={{
-    status: {
-      name: 'Badge Status',
-      description: 'Available options available to the Badge',
-      options: [
-        'positive',
-        'negative',
-        'warning',
-        'error',
-        'neutral'
-      ],
-      table: {
-        defaultValue: {
-          summary: 'positive'
-        },
-        type: {
-          summary: 'Shows options to the Badge',
-          detail: 'Listing of available options'
-        },
-      },
-    },
-    label: {
-      name: 'Badge Content',
-      description: 'Text shown by Badge',
-      control: {
-        type: 'text'
-      },
-      table: {
-        type: {
-          summary: 'The label contents',
-          detail: 'Text displayed by the Badge'
-        }
-      }
-    }
-  }}/>
-
-
-<style>{
-    `
-    table {
-        width: 100%;
-        text-align: left;
-    }
-   `
-} </style>
-
-# Typography
-
-Typography is critical for communicating the hierarchy of a page.
-
+export const typography = {
+  type: {
+    primary: '"Inter", "Helvetica Neue", Helvetica, Arial, sans-serif',
+  },
+  weight: {
+    regular: '400',
+    semibold: '600',
+    bold: '700'
+  },
+  size: {
+    s1: 14,
+    s2: 18,
+    s3: 22,
+    m1: 28,
+    m2: 36
+  },
+};
 
 export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
 
+<div class="mat-typography">
+<h1>Typography</h1>
+<h2>Typography</h2>
+<h3>Typography</h3>
+<h4>Typography</h4>
+<p>Typography</p>
+<button mat-button>Button</button>
+</div>
+
 **Font:** Inter
 
-**Weights:** 500(regular), 600(semiBold), 700(bold)
+**Weights:** 400(regular), 600(semibold), 700(bold)
 
-## Styles
-
-| Name | Class | HTML Tag |
-| ---- | ---- | ---- |
-| Headline | mat-headline | h1 |
-| Title | mat-title | h2 |
-| Subheading 1 | mat-subheading-1 | h3 |
-| Subheading 2 | mat-subheading-2 | h4 |
-| Body 1 | mat-body-1 |  |
-| Body 2 | mat-body-2 |  |
-| Caption | mat-caption |  |
-| Overline | mat-overline |  |
-
-
-
+<Typeset
+  fontSizes={[
+    Number(typography.size.s1),
+    Number(typography.size.s2),
+    Number(typography.size.s3),
+    Number(typography.size.m1),
+    Number(typography.size.m2)
+  ]}
+  fontWeight={typography.weight.black}
+  sampleText={SampleText}
+  fontFamily={typography.type.primary}
+/>

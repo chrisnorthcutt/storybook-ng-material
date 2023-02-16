@@ -17,7 +17,7 @@ import { DemoMaterialModule } from './material.module';
 import { MatListModule } from '@angular/material/list';
 import {MatChipsModule, MAT_CHIPS_DEFAULT_OPTIONS} from '@angular/material/chips';
 import {DragDropModule} from '@angular/cdk/drag-drop';
-
+import { MarkdownDisplayModule } from '@onecause/core';
 import { MatExpansionModule } from '@angular/material/expansion';
 
 
@@ -44,9 +44,11 @@ import { PaginatorComponent } from './paginator/paginator.component';
 import { TableComponent } from './table/table.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { DialogComponent } from './dialog/dialog.component';
+import { MarkdownComponent } from './markdown/markdown.component';
+import { MarkdownDisplayComponent } from '@onecause/core';
 
 @NgModule({
-  declarations: [												
+  declarations: [													
     AppComponent,
     ProgressBarComponent,
     StepperComponent,
@@ -65,12 +67,14 @@ import { DialogComponent } from './dialog/dialog.component';
       PaginatorComponent,
       TableComponent,
       SidenavComponent,
-      DialogComponent
+      DialogComponent,
+      MarkdownComponent,
+      
    ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-
+    MarkdownDisplayModule,
     DemoMaterialModule,
 
 

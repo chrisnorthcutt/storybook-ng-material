@@ -4,4 +4,5 @@ import ocTheme from './oc-theme';
 
 addons.setConfig({
   theme: ocTheme,
+
 });

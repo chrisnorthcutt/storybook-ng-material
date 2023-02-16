@@ -4,27 +4,86 @@ import { Meta, ColorPalette, ColorItem } from "@storybook/addon-docs";
 
 <Meta title="Foundations/Colors" />
 
+# Colors
+
 <ColorPalette>
   <ColorItem
-    title="Primary"
+    title="$color-blue"
     subtitle="Brand Blue"
     colors={{
-      500: "#2E729F",
-      900: "#002846",
-      200: "#E5EAEF",
+        lightest:    "#ecf4fa",
+        lighter:    "#d8e9f4",
+        light:   " #75b0d7",
+        blue: "#2e729f",
+        darker:    "#1d4764",
+        dark:    "#0c1d28",
     }}
   />
     <ColorItem
-    title="Accent"
+    title="$color-teal"
     subtitle="Brand Teal"
     colors={{
-      200: "#E6F3F1",
-      500: "#48BCAE",
-      900: "#20544E",
+        lighter: "#e1f5f2",
+        light: "#a9e1da",
+        teal: "#4ac0b2",
+        dark: "#318d82",
+        darker: " #1d544d",
+    }}
+  />
+    <ColorItem
+    title="$color-red"
+    subtitle="Red"
+    colors={{
+        lighter: "#f4cdc6",
+        light: "#e89586",
+        red: "#c84026",       
+        darker: "#882b1a",
+        dark: "#47170e",
+    }}
+  />
+    <ColorItem
+    title="$color-yellow"
+    subtitle="Yellow"
+    colors={{
+      lighter: "#fef8e8",
+      light: "#f9e2a0",
+      yellow: "#f2be28",
+      darker: "#c2930c",
+      dark: "#7a5c07",
+    }}
+  />
+    <ColorItem
+    title="$color-green"
+    subtitle="Green"
+    colors={{
+      lighter: "#f4fcf7",
+      light: "#baeace",
+      green: "#58cc88",
+      darker: "#32a562",
+      dark: "#216a3f",
+    }}
+  />
+    <ColorItem
+    title="$color-grey"
+    subtitle="Grey"
+    colors={{
+      lighter: "#e7e8e9",
+      lightest: "#f4f5f5",
+      light: "#969ca0",
+      grey: "#575c60",
+    }}
+  />
+    <ColorItem
+    title="$color-bg"
+    subtitle="Background"
+    colors={{
+      1: "#f5f6f7",
+2: "#ecedee",
+3: "#e1e3e5",
     }}
   />
   <ColorItem
-    title="Text"
+    title="$color-ink"
     subtitle="Black"
     colors={{ HighEmphasis: "hsla(0, 0%, 0%, 0.87)", MediumEmphasis: "hsla(0, 0%, 0%, 0.74)", Disabled: "hsla(0, 0%, 0%, 0.56)" }}
   />

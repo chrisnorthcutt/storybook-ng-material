@@ -58,12 +58,12 @@
         },
         {
             "name": "PropsOptions",
-            "id": "interface-PropsOptions-b274c4fe956926ee9c8892bb7b40fed576294fbf76c21929502feb53382e54cde4a44c24790449624ea32d18475144c7f8baeb13dc7c9834691134dcc2dbe783",
+            "id": "interface-PropsOptions-eaaeeb6a935a4b56b210382c634174dc31c9488a2c24cd249c53e7f90bcba6f6a66eceaab3f48218d223343ff74c14fa8c53e35edab9878f6e932e28180c7d55",
             "file": "src/stories/Button.stories.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import { Story, Meta } from '@storybook/angular/types-6-0';\nimport { ButtonComponent } from '../app/button/button.component';\nimport { MatButtonModule } from '@angular/material/button';\nimport { MatIconModule } from '@angular/material/icon';\nimport { moduleMetadata } from '@storybook/angular';\nimport {\n  previewTemplate,\n  DEFAULT_ANGULAR_CODESANDBOX,\n} from 'storybook-addon-preview';\n\n// More on default export: https://storybook.js.org/docs/angular/writing-stories/introduction#default-export\nexport default {\n  title: 'Base Components/Button',\n\n  // More on argTypes: https://storybook.js.org/docs/angular/api/argtypes\n  argTypes: {\n    Label: { control: 'text' },\n    Color: { control: 'select', options: ['primary', 'accent', 'warn'] },\n    Type: {\n      control: 'select',\n      options: ['mat-raised-button', 'mat-stroked-button', 'mat-button'],\n      table: { disable: true },\n    },\n    Disabled: { control: 'boolean' },\n    iconLeft: { control: 'boolean' },\n    iconRight: { control: 'boolean' },\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [MatButtonModule, MatIconModule],\n    }),\n  ],\n} as Meta;\n\n// More on component templates: https://storybook.js.org/docs/angular/writing-stories/introduction#using-args\n// const Template: Story<ButtonComponent> = (args: ButtonComponent) => ({\n//   props: args,\n// });\n\nexport const Template: Story<ButtonComponent> = (args) => ({\n  props: args,\n  template: `\n    <button \n    mat-button\n    [class]=\"Type\"\n    [color]=\"Color\"\n    [disabled]=\"Disabled\">\n        {{Label}}\n    </button>\n  `,\n});\n\nexport const Primary = Template.bind({});\nPrimary.args = {\n  Label: 'Primary',\n  Type: 'mat-raised-button',\n  Disabled: false,\n  iconLeft: false,\n  iconRight: false,\n};\n\nexport interface PropsOptions {\n  indent?: number;\n  wrap?: string;\n  prefix?: string;\n}\n\nexport const Secondary = Template.bind({});\nSecondary.args = {\n  Label: 'Secondary',\n  Type: 'mat-stroked-button',\n  Disabled: false,\n  iconLeft: false,\n  iconRight: false,\n};\nexport const Action = Template.bind({});\nAction.args = {\n  Label: 'Action',\n  Type: 'mat-button',\n  Disabled: false,\n  iconLeft: false,\n  iconRight: false,\n};\n\n",
+            "sourceCode": "import { Story, Meta } from '@storybook/angular/types-6-0';\nimport { ButtonComponent } from '../app/button/button.component';\nimport { MatButtonModule } from '@angular/material/button';\nimport { MatIconModule } from '@angular/material/icon';\nimport { moduleMetadata } from '@storybook/angular';\nimport {\n  previewTemplate,\n  DEFAULT_ANGULAR_CODESANDBOX,\n} from 'storybook-addon-preview';\n\n// More on default export: https://storybook.js.org/docs/angular/writing-stories/introduction#default-export\nexport default {\n  title: 'Base Components/Button',\n\n  // More on argTypes: https://storybook.js.org/docs/angular/api/argtypes\n\n  decorators: [\n    moduleMetadata({\n      imports: [MatButtonModule, MatIconModule],\n    }),\n  ],\n} as Meta;\n\n// More on component templates: https://storybook.js.org/docs/angular/writing-stories/introduction#using-args\n// const Template: Story<ButtonComponent> = (args: ButtonComponent) => ({\n//   props: args,\n// });\n\nconst Template: Story = (args) => ({\n  props: args,\n  argTypes: {\n    Label: { control: 'text' },\n    // Color: { control: 'select', defaultValue:'primary', options: ['primary', 'accent', 'warn'] },\n    Type: {\n      control: 'select',\n      options: ['mat-raised-button', 'mat-stroked-button', 'mat-button'],\n      table: { disable: true },\n    },\n    Disabled: { control: 'boolean' },\n    iconLeft: { control: 'boolean' },\n    iconRight: { control: 'boolean' },\n  },\n  template: `\n   <p> <button \n    mat-button\n    [class]=\"Type\"\n    color=\"primary\"\n    [disabled]=\"Disabled\">\n    <mat-icon *ngIf=\"iconLeft\" style=\"margin-right: 8px;\" >save</mat-icon>\n        <span>{{Label}}</span>\n        \n      <mat-icon *ngIf=\"iconRight\" style=\"margin-left: 8px;\">save</mat-icon>\n    </button></p>\n    <p><button \n    mat-button\n    [class]=\"Type\"\n    color=\"basic\"\n    [disabled]=\"Disabled\">\n    <mat-icon *ngIf=\"iconLeft\" style=\"margin-right: 8px;\" >save</mat-icon>\n        <span>{{Label}}</span>\n        \n      <mat-icon *ngIf=\"iconRight\" style=\"margin-left: 8px;\">save</mat-icon>\n    </button></p>\n    <p><button \n    mat-button\n    [class]=\"Type\"\n    color=\"warn\"\n    [disabled]=\"Disabled\">\n    <mat-icon *ngIf=\"iconLeft\" style=\"margin-right: 8px;\" >save</mat-icon>\n        <span>{{Label}}</span>\n        \n      <mat-icon *ngIf=\"iconRight\" style=\"margin-left: 8px;\">save</mat-icon>\n    </button></p>\n  `,\n});\nexport const Floating: Story<ButtonComponent> = (args) => ({\n  props: args,\n  template: `\n  <p>  <button mat-fab color=\"primary\" aria-label=\"Example icon button with a delete icon\">\n  <mat-icon>delete</mat-icon>\n </button>&nbsp;&nbsp;<button mat-mini-fab color=\"primary\" aria-label=\"Example icon button with a delete icon\">\n <mat-icon>delete</mat-icon>\n</button></p>\n <p>  <button mat-fab color=\"basic\" aria-label=\"Example icon button with a delete icon\">\n <mat-icon>delete</mat-icon>\n</button>&nbsp;&nbsp;<button mat-mini-fab color=\"basic\" aria-label=\"Example icon button with a delete icon\">\n<mat-icon>delete</mat-icon>\n</button></p>\n<p>  <button mat-fab color=\"warn\" aria-label=\"Example icon button with a delete icon\">\n<mat-icon>delete</mat-icon>\n</button>&nbsp;&nbsp;<button mat-mini-fab color=\"warn\" aria-label=\"Example icon button with a delete icon\">\n<mat-icon>delete</mat-icon>\n</button></p>\n  `,\n});\n\nFloating.parameters = {\n  preview: [\n    {\n      tab: 'HTML',\n      template: previewTemplate`\n<button mat-fab color=\"primary\" aria-label=\"Example icon button with a delete icon\">\n  <mat-icon>delete</mat-icon>\n</button>\n\n//Mini Fab\n<button mat-mini-fab color=\"primary\" aria-label=\"Example icon button with a delete icon\">\n  <mat-icon>delete</mat-icon>\n</button>\n            `,\n      language: 'html',\n      copy: true,\n    },\n  ],\n};\n\nexport const Icon: Story<ButtonComponent> = (args) => ({\n  props: args,\n  template: `\n   <p> <button color=\"primary\" mat-icon-button aria-label=\"Example icon button with a vertical three dot icon\">\n   <mat-icon>more_vert</mat-icon>\n </button></p>\n <p> <button color=\"basic\" mat-icon-button aria-label=\"Example icon button with a vertical three dot icon\">\n <mat-icon>more_vert</mat-icon>\n</button></p>\n<p> <button color=\"warn\" mat-icon-button aria-label=\"Example icon button with a vertical three dot icon\">\n<mat-icon>more_vert</mat-icon>\n</button></p>\n  `,\n});\n\nIcon.parameters = {\n  preview: [\n    {\n      tab: 'HTML',\n      template: previewTemplate`\n<button color=\"primary\" mat-icon-button aria-label=\"Example icon button with a vertical three dot icon\">\n  <mat-icon>more_vert</mat-icon>\n</button>\n            `,\n      language: 'html',\n      copy: true,\n    },\n  ],\n};\n\nexport const Raised = Template.bind({});\nRaised.args = {\n  Label: 'Raised',\n  Type: 'mat-raised-button',\n  Disabled: false,\n  iconLeft: false,\n  iconRight: false,\n};\n\nRaised.parameters = {\n  preview: [\n    {\n      tab: 'HTML',\n      template: previewTemplate`\n<button \nmat-raised-button\ncolor='primary'\ndisabled=${'Disabled'}>\n  <mat-icon *ngIf=${'iconLeft'} style=\"margin-right: 8px;\" >save</mat-icon>\n  <span>${'Label'}</span>\n  <mat-icon *ngIf=\"iconRight\" style=\"margin-left: 8px;\">save</mat-icon>\n</button>\n            `,\n      language: 'html',\n      copy: true,\n    },\n  ],\n};\n\nexport interface PropsOptions {\n  indent?: number;\n  wrap?: string;\n  prefix?: string;\n}\n\nexport const Stroked = Template.bind({});\nStroked.args = {\n  Label: 'Stroked',\n  Type: 'mat-stroked-button',\n  Disabled: false,\n  iconLeft: false,\n  iconRight: false,\n};\n\nStroked.parameters = {\n  preview: [\n    {\n      tab: 'HTML',\n      template: previewTemplate`\n<button \nmat-stroked-button\ncolor='primary'\ndisabled=${'Disabled'}>\n  <mat-icon *ngIf=${'iconLeft'} style=\"margin-right: 8px;\" >save</mat-icon>\n  <span>${'Label'}</span>\n  <mat-icon *ngIf=\"iconRight\" style=\"margin-left: 8px;\">save</mat-icon>\n</button>\n            `,\n      language: 'html',\n      copy: true,\n    },\n  ],\n};\n\nexport const Basic = Template.bind({});\nBasic.args = {\n  Label: 'Basic',\n  Type: 'mat-button',\n  Disabled: false,\n  iconLeft: false,\n  iconRight: false,\n};\n\nBasic.parameters = {\n  preview: [\n    {\n      tab: 'HTML',\n      template: previewTemplate`\n<button \nmat-button\ncolor='primary'\ndisabled=${'Disabled'}>\n  <mat-icon *ngIf=${'iconLeft'} style=\"margin-right: 8px;\" >save</mat-icon>\n  <span>${'Label'}</span>  \n  <mat-icon *ngIf=\"iconRight\" style=\"margin-left: 8px;\">save</mat-icon>\n</button>\n            `,\n      language: 'html',\n      copy: true,\n    },\n  ],\n};",
             "properties": [
                 {
                     "name": "indent",
@@ -72,7 +72,7 @@
                     "type": "number",
                     "optional": true,
                     "description": "",
-                    "line": 64
+                    "line": 178
                 },
                 {
                     "name": "prefix",
@@ -81,7 +81,7 @@
                     "type": "string",
                     "optional": true,
                     "description": "",
-                    "line": 66
+                    "line": 180
                 },
                 {
                     "name": "wrap",
@@ -90,7 +90,7 @@
                     "type": "string",
                     "optional": true,
                     "description": "",
-                    "line": 65
+                    "line": 179
                 }
             ],
             "indexSignatures": [],
@@ -516,7 +516,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<form ><mat-form-field *ngIf=\"Type === 'basic'\"  class=\"example-full-width\" appearance=\"fill\">\n  <mat-label>Autocomplete</mat-label>\n  <input type=\"text\"\n  [required]=\"false\"\n         placeholder=\"Pick one\"\n         aria-label=\"Number\"\n         matInput\n         [formControl]=\"basic\"\n         [matAutocomplete]=\"auto\">\n  <mat-autocomplete #auto=\"matAutocomplete\" [autoActiveFirstOption]=\"autoActiveFirstOption\">\n    <mat-option *ngFor=\"let option of filteredOptions | async\" [value]=\"option\">\n      {{option}}\n    </mat-option>\n  </mat-autocomplete>\n</mat-form-field>\n  \n\n\n\n  <mat-form-field *ngIf=\"Type === 'detailed'\" class=\"example-full-width\" appearance=\"fill\" >\n    <mat-label>State</mat-label>\n    <input matInput [required]=\"false\"\n    type=\"text\"\n           aria-label=\"State\"\n           [matAutocomplete]=\"auto\"\n           [formControl]=\"stateCtrl\">\n    <mat-autocomplete #auto=\"matAutocomplete\" [autoActiveFirstOption]=\"autoActiveFirstOption\">\n      <mat-option *ngFor=\"let state of filteredStates | async\" [value]=\"state.name\">\n        <img class=\"example-option-img\" aria-hidden [src]=\"state.flag\" height=\"25\">\n        <span>{{state.name}}</span> |\n        <small>Population: {{state.population}}</small>\n      </mat-option>\n    </mat-autocomplete>\n  </mat-form-field>\n</form>"
+            "templateData": "<form ><mat-form-field *ngIf=\"Type === 'basic'\"  class=\"example-full-width\" appearance=\"fill\">\n  <mat-label>Autocomplete</mat-label>\n  <input type=\"text\"\n  [required]=\"false\"\n         placeholder=\"Pick one\"\n         aria-label=\"Number\"\n         matInput\n         [formControl]=\"basic\"\n         [matAutocomplete]=\"auto\">\n  <mat-autocomplete #auto=\"matAutocomplete\" [autoActiveFirstOption]=\"autoActiveFirstOption\">\n    <mat-option *ngFor=\"let option of filteredOptions | async\" [value]=\"option\">\n      {{option}}\n    </mat-option>\n  </mat-autocomplete>\n</mat-form-field>\n  \n\n\n\n  <mat-form-field *ngIf=\"Type === 'detailed'\" class=\"example-full-width\" appearance=\"fill\" >\n    <mat-label>State</mat-label>\n    <input matInput [required]=\"false\"\n    type=\"text\"\n           aria-label=\"State\"\n           [matAutocomplete]=\"auto\"\n           [formControl]=\"stateCtrl\">\n    <mat-autocomplete #auto=\"matAutocomplete\" [autoActiveFirstOption]=\"autoActiveFirstOption\">\n      <mat-option *ngFor=\"let state of filteredStates | async\" [value]=\"state.name\">\n        <img [alt]=\"stat.flag\" class=\"example-option-img\" aria-hidden [src]=\"state.flag\" height=\"25\">\n        <span>{{state.name}}</span> |\n        <small>Population: {{state.population}}</small>\n      </mat-option>\n    </mat-autocomplete>\n  </mat-form-field>\n</form>"
         },
         {
             "name": "ButtonComponent",
@@ -668,7 +668,7 @@
         },
         {
             "name": "CardComponent",
-            "id": "component-CardComponent-c072312671a50b4ab71e69f36cdd2a01f5cb2bcce82c591c85f3dc0dbee0fdd89bd8857b43272524526f5a1f91f15350e2e63729d04554e9aa9b1519a73f3626",
+            "id": "component-CardComponent-d964531a51999ceb58d8bcf4d60982982f6f04a8332e7e88cd86630980d545fe654609d27d66f521f357b794bb22f9b55ce59bd9c4a461edd78891ba07fe9b81",
             "file": "src/app/card/card.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -689,7 +689,7 @@
                     "name": "Action1",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 14,
+                    "line": 20,
                     "type": "string",
                     "decorators": []
                 },
@@ -697,7 +697,15 @@
                     "name": "Action2",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 17,
+                    "line": 23,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "Description",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
                     "type": "string",
                     "decorators": []
                 },
@@ -705,7 +713,15 @@
                     "name": "imageSrc",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 20,
+                    "line": 26,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "Subtitle",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
                     "type": "string",
                     "decorators": []
                 },
@@ -728,7 +744,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-card',\n  templateUrl: './card.component.html',\n  styleUrls: ['./card.component.scss']\n})\nexport class CardComponent  {\n\n  @Input() \n  Title:string\n\n  @Input()\n  Action1:string\n\n  @Input()\n  Action2:string\n\n  @Input()\n  imageSrc:string\n}\n\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-card',\n  templateUrl: './card.component.html',\n  styleUrls: ['./card.component.scss']\n})\nexport class CardComponent  {\n\n  @Input() \n  Title:string\n\n  @Input() \n  Description:string\n  \n  @Input() \n  Subtitle:string\n\n  @Input()\n  Action1:string\n\n  @Input()\n  Action2:string\n\n  @Input()\n  imageSrc:string\n}\n\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -737,7 +753,7 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<mat-card class=\"example-card\">\n    <mat-card-header>\n      <div mat-card-avatar class=\"example-header-image\"></div>\n      <mat-card-title>{{Title}}</mat-card-title>\n      <mat-card-subtitle>Dog Breed</mat-card-subtitle>\n    </mat-card-header>\n    <img mat-card-image [src]=\"imageSrc\" alt=\"Photo of a Shiba Inu\">\n    <mat-card-content>\n      <p>\n        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.\n        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally\n        bred for hunting.\n      </p>\n    </mat-card-content>\n    <mat-card-actions>\n      <button mat-button>{{Action1}}</button>\n      <button mat-button>{{Action2}}</button>\n    </mat-card-actions>\n  </mat-card>\n  "
+            "templateData": "<mat-card class=\"example-card\">\n    <mat-card-header>\n      <div mat-card-avatar class=\"example-header-image\"></div>\n      <mat-card-title>{{Title}}</mat-card-title>\n      <mat-card-subtitle>{{Subtitle}}</mat-card-subtitle>\n    </mat-card-header>\n    <img mat-card-image [src]=\"imageSrc\" alt=\"Photo of a Shiba Inu\">\n    <mat-card-content>\n      <p>\n       {{Description}}\n      </p>\n    </mat-card-content>\n    <mat-card-actions>\n      <button mat-button>{{Action1}}</button>\n      <button mat-button>{{Action2}}</button>\n    </mat-card-actions>\n  </mat-card>\n  "
         },
         {
             "name": "ChipListComponent",
@@ -1413,6 +1429,116 @@
             "templateData": "<div *ngIf=\"selectionList === false\">\n  <mat-list role=\"list\">\n    <div mat-subheader *ngIf=\"showHeader\">{{ headerLabel }}</div>\n    <mat-list-item role=\"listitem\" *ngFor=\"let item of groceryList\">\n      <img\n        matListAvatar\n        *ngIf=\"showAvatar\"\n        src=\"https://media.istockphoto.com/vectors/thumbnail-image-vector-graphic-vector-id1147544807?k=20&m=1147544807&s=612x612&w=0&h=pBhz1dkwsCMq37Udtp9sfxbjaMl27JUapoyYpQm0anc=\"\n        alt=\"...\"\n      />\n      <mat-icon *ngIf=\"!showAvatar\" mat-list-icon>restaurant</mat-icon>\n      <h3 matLine>{{ item }}</h3>\n      <h3 matLine>Line 2</h3>\n    </mat-list-item>\n  </mat-list>\n</div>\n\n<div *ngIf=\"selectionList && selectionMultiple\">\n  <mat-selection-list>\n    <div mat-subheader *ngIf=\"showHeader\">{{ headerLabel }}</div>\n    <mat-list-option *ngFor=\"let item of groceryList\">\n      <img\n        matListAvatar\n        *ngIf=\"showAvatar\"\n        src=\"https://media.istockphoto.com/vectors/thumbnail-image-vector-graphic-vector-id1147544807?k=20&m=1147544807&s=612x612&w=0&h=pBhz1dkwsCMq37Udtp9sfxbjaMl27JUapoyYpQm0anc=\"\n        alt=\"...\"\n      />\n      <mat-icon *ngIf=\"!showAvatar\" mat-list-icon>restaurant</mat-icon>\n      <h3 matLine>{{ item }}</h3>\n    </mat-list-option>\n  </mat-selection-list>\n</div>\n<div *ngIf=\"selectionList && !selectionMultiple\">\n  <mat-selection-list [multiple]=\"false\">\n    <div mat-subheader *ngIf=\"showHeader\">{{ headerLabel }}</div>\n    <mat-list-option *ngFor=\"let item of groceryList\">\n      <img\n        matListAvatar\n        *ngIf=\"showAvatar\"\n        src=\"https://media.istockphoto.com/vectors/thumbnail-image-vector-graphic-vector-id1147544807?k=20&m=1147544807&s=612x612&w=0&h=pBhz1dkwsCMq37Udtp9sfxbjaMl27JUapoyYpQm0anc=\"\n        alt=\"...\"\n      />\n      <mat-icon *ngIf=\"!showAvatar\" mat-list-icon>restaurant</mat-icon>\n      <h3 matLine>{{ item }}</h3>\n    </mat-list-option>\n  </mat-selection-list>\n</div>\n"
         },
         {
+            "name": "MarkdownComponent",
+            "id": "component-MarkdownComponent-5b671b624b1a19b32ce4700097841b603705503b80ba02c6b4892f4982dce191ca787e1e689b2609153dcd68077257f7a6cb1b2c389a188bd431ffe0aba91ed3",
+            "file": "src/app/markdown/markdown.component.ts",
+            "encapsulation": [
+                "ViewEncapsulation.None"
+            ],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-markdown",
+            "styleUrls": [
+                "./markdown.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./markdown.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "defaultTemplate",
+                    "defaultValue": "`# Heading level 1\n  ## Heading level 2\n  ### Heading level 3\n  #### Heading level 4\n  ##### Heading level 5\n  ###### Heading level 6\n  **This is bold**\n  - First item\n  - Second item\n  - Third item\n      - Indented item\n      - Indented item\n  - Fourth item`",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 11
+                },
+                {
+                    "name": "maxLengthTemplate",
+                    "defaultValue": "`# Max Length Test\n  Errors with more than 50 chars.`",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 30
+                },
+                {
+                    "name": "validationDisabledTemplate",
+                    "defaultValue": "`# Test 1\n  <open without closing\n  # Test 2\n  {{ safe`",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 25
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "updateMarkdown",
+                    "args": [
+                        {
+                            "name": "markdown",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 33,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "markdown",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit, ViewEncapsulation } from '@angular/core';\n\n\n@Component({\n  selector: 'app-markdown',\n  templateUrl: './markdown.component.html',\n  styleUrls: ['./markdown.component.css'],\n  encapsulation: ViewEncapsulation.None\n})\nexport class MarkdownComponent {\n  defaultTemplate = `# Heading level 1\n  ## Heading level 2\n  ### Heading level 3\n  #### Heading level 4\n  ##### Heading level 5\n  ###### Heading level 6\n  **This is bold**\n  - First item\n  - Second item\n  - Third item\n      - Indented item\n      - Indented item\n  - Fourth item`;\n  \n    validationDisabledTemplate = `# Test 1\n  <open without closing\n  # Test 2\n  {{ safe`;\n  \n    maxLengthTemplate = `# Max Length Test\n  Errors with more than 50 chars.`\n  \n    updateMarkdown(markdown: string) {\n      console.log(markdown);\n    }\n  constructor() { }\n\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./markdown.component.css"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 35
+            },
+            "templateData": "<core-markdown-display (markdownChange)=\"updateMarkdown($event)\"></core-markdown-display>"
+        },
+        {
             "name": "MenuComponent",
             "id": "component-MenuComponent-92b2d0587f5252f3934573e0175322f20379b3e7f82057d8043689e4f33407fda503fca99e7a0cf9960685a2fcb782919f4fcce4ef8c01b97e4e4ca2348d23df",
             "file": "src/app/menu/menu.component.ts",
@@ -1527,7 +1653,7 @@
         },
         {
             "name": "PageComponent",
-            "id": "component-PageComponent-643f64c033280803aa1c42bca3f41d1de3feddffa38a4274b601ec70373c56e50e1b53ab28fb1b0633b78614c7ae881f0de745eadd99ad1551cee979f9a5b8d1",
+            "id": "component-PageComponent-4d67e607aec45a7ce65cfd3101d5b59ba240a92fc7dd21af515741abbe4f9637b4cd41eccfebfb43a0576ffe4cc57f712ac517303a3151a539d0e0aa0c681252",
             "file": "src/stories/page.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1544,50 +1670,8 @@
             "viewProviders": [],
             "inputsClass": [],
             "outputsClass": [],
-            "propertiesClass": [
-                {
-                    "name": "user",
-                    "defaultValue": "null",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "User | null",
-                    "optional": false,
-                    "description": "",
-                    "line": 59
-                }
-            ],
-            "methodsClass": [
-                {
-                    "name": "doCreateAccount",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 69,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                },
-                {
-                    "name": "doLogin",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 65,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                },
-                {
-                    "name": "doLogout",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 61,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                }
-            ],
+            "propertiesClass": [],
+            "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -1595,7 +1679,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { User } from './User';\n\n@Component({\n  selector: 'storybook-page',\n  template: `<article>\n\n    <section>\n      <h2>Pages in Storybook</h2>\n      <p>\n        We recommend building UIs with a\n        <a href=\"https://componentdriven.org\" target=\"_blank\" rel=\"noopener noreferrer\">\n          <strong>component-driven</strong>\n        </a>\n        process starting with atomic components and ending with pages.\n      </p>\n      <p>\n        Render pages with mock data. This makes it easy to build and review page states without\n        needing to navigate to them in your app. Here are some handy patterns for managing page data\n        in Storybook:\n      </p>\n      <ul>\n        <li>\n          Use a higher-level connected component. Storybook helps you compose such data from the\n          \"args\" of child component stories\n        </li>\n        <li>\n          Assemble data in the page component from your services. You can mock these services out\n          using Storybook.\n        </li>\n      </ul>\n      <p>\n        Get a guided tutorial on component-driven development at\n        <a href=\"https://storybook.js.org/tutorials/\" target=\"_blank\" rel=\"noopener noreferrer\">\n          Storybook tutorials\n        </a>\n        . Read more in the\n        <a href=\"https://storybook.js.org/docs\" target=\"_blank\" rel=\"noopener noreferrer\"> docs </a>\n        .\n      </p>\n      <div class=\"tip-wrapper\">\n        <span class=\"tip\">Tip</span> Adjust the width of the canvas with the\n        <svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" xmlns=\"http://www.w3.org/2000/svg\">\n          <g fill=\"none\" fillRule=\"evenodd\">\n            <path\n              d=\"M1.5 5.2h4.8c.3 0 .5.2.5.4v5.1c-.1.2-.3.3-.4.3H1.4a.5.5 0 01-.5-.4V5.7c0-.3.2-.5.5-.5zm0-2.1h6.9c.3 0 .5.2.5.4v7a.5.5 0 01-1 0V4H1.5a.5.5 0 010-1zm0-2.1h9c.3 0 .5.2.5.4v9.1a.5.5 0 01-1 0V2H1.5a.5.5 0 010-1zm4.3 5.2H2V10h3.8V6.2z\"\n              id=\"a\"\n              fill=\"#999\"\n            />\n          </g>\n        </svg>\n        Viewports addon in the toolbar\n      </div>\n    </section>\n  </article>`,\n  styleUrls: ['./page.css'],\n})\nexport default class PageComponent {\n  user: User | null = null;\n\n  doLogout() {\n    this.user = null;\n  }\n\n  doLogin() {\n    this.user = { name: 'Jane Doe' };\n  }\n\n  doCreateAccount() {\n    this.user = { name: 'Jane Doe' };\n  }\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { User } from './User';\n\n@Component({\n  selector: 'storybook-page',\n  template: `<article>\n\n    <section>\n      <h2>Pages in Storybook</h2>\n      <p>\n        We recommend building UIs with a\n        <a href=\"https://componentdriven.org\" target=\"_blank\" rel=\"noopener noreferrer\">\n          <strong>component-driven</strong>\n        </a>\n        process starting with atomic components and ending with pages.\n      </p>\n      <p>\n        Render pages with mock data. This makes it easy to build and review page states without\n        needing to navigate to them in your app. Here are some handy patterns for managing page data\n        in Storybook:\n      </p>\n      <ul>\n        <li>\n          Use a higher-level connected component. Storybook helps you compose such data from the\n          \"args\" of child component stories\n        </li>\n        <li>\n          Assemble data in the page component from your services. You can mock these services out\n          using Storybook.\n        </li>\n      </ul>\n      <p>\n        Get a guided tutorial on component-driven development at\n        <a href=\"https://storybook.js.org/tutorials/\" target=\"_blank\" rel=\"noopener noreferrer\">\n          Storybook tutorials\n        </a>\n        . Read more in the\n        <a href=\"https://storybook.js.org/docs\" target=\"_blank\" rel=\"noopener noreferrer\"> docs </a>\n        .\n      </p>\n      <div class=\"tip-wrapper\">\n        <span class=\"tip\">Tip</span> Adjust the width of the canvas with the\n        <svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" xmlns=\"http://www.w3.org/2000/svg\">\n          <g fill=\"none\" fillRule=\"evenodd\">\n            <path\n              d=\"M1.5 5.2h4.8c.3 0 .5.2.5.4v5.1c-.1.2-.3.3-.4.3H1.4a.5.5 0 01-.5-.4V5.7c0-.3.2-.5.5-.5zm0-2.1h6.9c.3 0 .5.2.5.4v7a.5.5 0 01-1 0V4H1.5a.5.5 0 010-1zm0-2.1h9c.3 0 .5.2.5.4v9.1a.5.5 0 01-1 0V2H1.5a.5.5 0 010-1zm4.3 5.2H2V10h3.8V6.2z\"\n              id=\"a\"\n              fill=\"#999\"\n            />\n          </g>\n        </svg>\n        Viewports addon in the toolbar\n      </div>\n    </section>\n  </article>`,\n  styleUrls: ['./page.css'],\n})\nexport default class PageComponent {\n  \n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -2462,13 +2546,13 @@
     "modules": [
         {
             "name": "AppModule",
-            "id": "module-AppModule-10fca3b208af8f80b44a5fca0f0102ae1a9e0376f048a9b6cc955500b1580ef81d98f9eb1c9d82aae1234ba246552a8b7517aa9a941aa32ec3eae3fd98e73bd9",
+            "id": "module-AppModule-46f896da02a43ee15cad7a66531a0d42d22ac86e8dfecbcccfb290ae98e3534c7225bd6743498bf53173b556bad06d19b53fe3dfb6a712158110ef71d8722b7d",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/app.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\n\nimport { AppComponent } from './app.component';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { NoopAnimationsModule } from '@angular/platform-browser/animations';\nimport { ProgressBarComponent } from './progress-bar/progress-bar.component';\nimport {MatProgressBarModule} from '@angular/material/progress-bar';\nimport { StepperComponent } from './stepper/stepper.component';\nimport {MatStepperModule} from '@angular/material/stepper';\nimport {MatInputModule} from '@angular/material/input';\nimport { MatIconModule } from '@angular/material/icon';\nimport {MatCardModule} from '@angular/material/card';\nimport { MatButtonModule } from '@angular/material/button';\nimport {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';\nimport { DemoMaterialModule } from './material.module';\nimport { MatListModule } from '@angular/material/list';\nimport {MatChipsModule, MAT_CHIPS_DEFAULT_OPTIONS} from '@angular/material/chips';\nimport {DragDropModule} from '@angular/cdk/drag-drop';\n\nimport { MatExpansionModule } from '@angular/material/expansion';\n\n\n\nimport {MatFormFieldModule} from '@angular/material/form-field'; \nimport { FormsModule, ReactiveFormsModule} from '@angular/forms';\nimport { CardComponent } from './card/card.component' \nimport { MetricContainerModule } from './metric-container';\nimport { ListComponent } from './list/list.component';\nimport { ButtonComponent } from './button/button.component';\nimport { MatButtonToggleModule } from '@angular/material/button-toggle';\nimport { ButtonToggleComponent } from './button-toggle/button-toggle.component';\nimport { ChipListComponent } from './chip-list/chip-list.component';\nimport { ENTER, COMMA } from '@angular/cdk/keycodes';\nimport { ExpansionPanelComponent } from './expansion-panel/expansion-panel.component';\nimport {MatAccordion} from '@angular/material/expansion';\nimport { MenuComponent } from './menu/menu.component';\nimport { FormFieldComponent } from './form-field/form-field.component';\nimport { SliderComponent } from './slider/slider.component';\nimport { TabsComponent } from './tabs/tabs.component';\nimport { SnackbarComponent } from './snackbar/snackbar.component';\nimport { AutocompleteComponent } from './autocomplete/autocomplete.component';\nimport { PaginatorComponent } from './paginator/paginator.component';\nimport { TableComponent } from './table/table.component';\nimport { SidenavComponent } from './sidenav/sidenav.component';\nimport { DialogComponent } from './dialog/dialog.component';\n\n@NgModule({\n  declarations: [\t\t\t\t\t\t\t\t\t\t\t\t\n    AppComponent,\n    ProgressBarComponent,\n    StepperComponent,\n    CardComponent,\n    ListComponent,\n    ButtonComponent,\n    ButtonToggleComponent,\n      ChipListComponent,\n      ExpansionPanelComponent,\n      MenuComponent,\n      FormFieldComponent,\n      SliderComponent,\n      TabsComponent,\n      SnackbarComponent,\n      AutocompleteComponent,\n      PaginatorComponent,\n      TableComponent,\n      SidenavComponent,\n      DialogComponent\n   ],\n  imports: [\n    BrowserModule,\n    BrowserAnimationsModule,\n\n    DemoMaterialModule,\n\n\n  ],\n\n  \n\n  providers: [\n      { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'outline' } },\n    {\n      provide: MAT_CHIPS_DEFAULT_OPTIONS,\n      useValue: {\n        separatorKeyCodes: [ENTER, COMMA]\n      }\n    },\n\n  ],\n  bootstrap: [AppComponent]\n})\nexport class AppModule { }\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\n\nimport { AppComponent } from './app.component';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { NoopAnimationsModule } from '@angular/platform-browser/animations';\nimport { ProgressBarComponent } from './progress-bar/progress-bar.component';\nimport {MatProgressBarModule} from '@angular/material/progress-bar';\nimport { StepperComponent } from './stepper/stepper.component';\nimport {MatStepperModule} from '@angular/material/stepper';\nimport {MatInputModule} from '@angular/material/input';\nimport { MatIconModule } from '@angular/material/icon';\nimport {MatCardModule} from '@angular/material/card';\nimport { MatButtonModule } from '@angular/material/button';\nimport {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';\nimport { DemoMaterialModule } from './material.module';\nimport { MatListModule } from '@angular/material/list';\nimport {MatChipsModule, MAT_CHIPS_DEFAULT_OPTIONS} from '@angular/material/chips';\nimport {DragDropModule} from '@angular/cdk/drag-drop';\nimport { MarkdownDisplayModule } from '@onecause/core';\nimport { MatExpansionModule } from '@angular/material/expansion';\n\n\n\nimport {MatFormFieldModule} from '@angular/material/form-field'; \nimport { FormsModule, ReactiveFormsModule} from '@angular/forms';\nimport { CardComponent } from './card/card.component' \nimport { MetricContainerModule } from './metric-container';\nimport { ListComponent } from './list/list.component';\nimport { ButtonComponent } from './button/button.component';\nimport { MatButtonToggleModule } from '@angular/material/button-toggle';\nimport { ButtonToggleComponent } from './button-toggle/button-toggle.component';\nimport { ChipListComponent } from './chip-list/chip-list.component';\nimport { ENTER, COMMA } from '@angular/cdk/keycodes';\nimport { ExpansionPanelComponent } from './expansion-panel/expansion-panel.component';\nimport {MatAccordion} from '@angular/material/expansion';\nimport { MenuComponent } from './menu/menu.component';\nimport { FormFieldComponent } from './form-field/form-field.component';\nimport { SliderComponent } from './slider/slider.component';\nimport { TabsComponent } from './tabs/tabs.component';\nimport { SnackbarComponent } from './snackbar/snackbar.component';\nimport { AutocompleteComponent } from './autocomplete/autocomplete.component';\nimport { PaginatorComponent } from './paginator/paginator.component';\nimport { TableComponent } from './table/table.component';\nimport { SidenavComponent } from './sidenav/sidenav.component';\nimport { DialogComponent } from './dialog/dialog.component';\nimport { MarkdownComponent } from './markdown/markdown.component';\nimport { MarkdownDisplayComponent } from '@onecause/core';\n\n@NgModule({\n  declarations: [\t\t\t\t\t\t\t\t\t\t\t\t\t\n    AppComponent,\n    ProgressBarComponent,\n    StepperComponent,\n    CardComponent,\n    ListComponent,\n    ButtonComponent,\n    ButtonToggleComponent,\n      ChipListComponent,\n      ExpansionPanelComponent,\n      MenuComponent,\n      FormFieldComponent,\n      SliderComponent,\n      TabsComponent,\n      SnackbarComponent,\n      AutocompleteComponent,\n      PaginatorComponent,\n      TableComponent,\n      SidenavComponent,\n      DialogComponent,\n      MarkdownComponent,\n      \n   ],\n  imports: [\n    BrowserModule,\n    BrowserAnimationsModule,\n    MarkdownDisplayModule,\n    DemoMaterialModule,\n\n\n  ],\n\n  \n\n  providers: [\n      { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'outline' } },\n    {\n      provide: MAT_CHIPS_DEFAULT_OPTIONS,\n      useValue: {\n        separatorKeyCodes: [ENTER, COMMA]\n      }\n    },\n\n  ],\n  bootstrap: [AppComponent]\n})\nexport class AppModule { }\n",
             "children": [
                 {
                     "type": "providers",
@@ -2506,6 +2590,9 @@
                         },
                         {
                             "name": "ListComponent"
+                        },
+                        {
+                            "name": "MarkdownComponent"
                         },
                         {
                             "name": "MenuComponent"
@@ -2646,14 +2733,14 @@
     "miscellaneous": {
         "variables": [
             {
-                "name": "Action",
+                "name": "actionsData",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Button.stories.ts",
+                "file": "src/stories/Markdown.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
+                "type": "object",
+                "defaultValue": "{\n  markdownChange: action('updateMarkdown'),\n}"
             },
             {
                 "name": "argTypes",
@@ -2690,6 +2777,16 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/Button-Toggle.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Basic",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2769,7 +2866,7 @@
                 "name": "Basic",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Table.stories.ts",
+                "file": "src/stories/Tabs.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2779,7 +2876,7 @@
                 "name": "Basic",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Tabs.stories.ts",
+                "file": "src/stories/Table.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2916,6 +3013,16 @@
                 "defaultValue": "{\n  production: false\n}"
             },
             {
+                "name": "Floating",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ButtonComponent>",
+                "defaultValue": "(args) => ({\n  props: args,\n  template: `\n  <p>  <button mat-fab color=\"primary\" aria-label=\"Example icon button with a delete icon\">\n  <mat-icon>delete</mat-icon>\n </button>&nbsp;&nbsp;<button mat-mini-fab color=\"primary\" aria-label=\"Example icon button with a delete icon\">\n <mat-icon>delete</mat-icon>\n</button></p>\n <p>  <button mat-fab color=\"basic\" aria-label=\"Example icon button with a delete icon\">\n <mat-icon>delete</mat-icon>\n</button>&nbsp;&nbsp;<button mat-mini-fab color=\"basic\" aria-label=\"Example icon button with a delete icon\">\n<mat-icon>delete</mat-icon>\n</button></p>\n<p>  <button mat-fab color=\"warn\" aria-label=\"Example icon button with a delete icon\">\n<mat-icon>delete</mat-icon>\n</button>&nbsp;&nbsp;<button mat-mini-fab color=\"warn\" aria-label=\"Example icon button with a delete icon\">\n<mat-icon>delete</mat-icon>\n</button></p>\n  `,\n})"
+            },
+            {
                 "name": "Form",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -2956,6 +3063,16 @@
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Icon",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ButtonComponent>",
+                "defaultValue": "(args) => ({\n  props: args,\n  template: `\n   <p> <button color=\"primary\" mat-icon-button aria-label=\"Example icon button with a vertical three dot icon\">\n   <mat-icon>more_vert</mat-icon>\n </button></p>\n <p> <button color=\"basic\" mat-icon-button aria-label=\"Example icon button with a vertical three dot icon\">\n <mat-icon>more_vert</mat-icon>\n</button></p>\n<p> <button color=\"warn\" mat-icon-button aria-label=\"Example icon button with a vertical three dot icon\">\n<mat-icon>more_vert</mat-icon>\n</button></p>\n  `,\n})"
             },
             {
                 "name": "Icon",
@@ -3061,11 +3178,11 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Button.stories.ts",
+                "file": "src/stories/Markdown.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
+                "type": "Story",
+                "defaultValue": "() => ({\n  \n  props: {\n    markdownChange: actionsData.markdownChange,\n    defaultTemplate: '###Hello',\n    maxLength: '1200',\n    showEditor: true\n  },\n\n})"
             },
             {
                 "name": "Progressive",
@@ -3098,16 +3215,7 @@
                 "defaultValue": "Template.bind({})"
             },
             {
-                "name": "require",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/test.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "literal type"
-            },
-            {
-                "name": "Secondary",
+                "name": "Raised",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/Button.stories.ts",
@@ -3115,6 +3223,15 @@
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "require",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/test.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "literal type"
             },
             {
                 "name": "Select",
@@ -3157,6 +3274,16 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "Stroked",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -3193,8 +3320,8 @@
                 "file": "src/stories/Button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<ButtonComponent>",
-                "defaultValue": "(args) => ({\n  props: args,\n  template: `\n    <button \n    mat-button\n    [class]=\"Type\"\n    [color]=\"Color\"\n    [disabled]=\"Disabled\">\n        {{Label}}\n    </button>\n  `,\n})"
+                "type": "Story",
+                "defaultValue": "(args) => ({\n  props: args,\n  argTypes: {\n    Label: { control: 'text' },\n    // Color: { control: 'select', defaultValue:'primary', options: ['primary', 'accent', 'warn'] },\n    Type: {\n      control: 'select',\n      options: ['mat-raised-button', 'mat-stroked-button', 'mat-button'],\n      table: { disable: true },\n    },\n    Disabled: { control: 'boolean' },\n    iconLeft: { control: 'boolean' },\n    iconRight: { control: 'boolean' },\n  },\n  template: `\n   <p> <button \n    mat-button\n    [class]=\"Type\"\n    color=\"primary\"\n    [disabled]=\"Disabled\">\n    <mat-icon *ngIf=\"iconLeft\" style=\"margin-right: 8px;\" >save</mat-icon>\n        <span>{{Label}}</span>\n        \n      <mat-icon *ngIf=\"iconRight\" style=\"margin-left: 8px;\">save</mat-icon>\n    </button></p>\n    <p><button \n    mat-button\n    [class]=\"Type\"\n    color=\"basic\"\n    [disabled]=\"Disabled\">\n    <mat-icon *ngIf=\"iconLeft\" style=\"margin-right: 8px;\" >save</mat-icon>\n        <span>{{Label}}</span>\n        \n      <mat-icon *ngIf=\"iconRight\" style=\"margin-left: 8px;\">save</mat-icon>\n    </button></p>\n    <p><button \n    mat-button\n    [class]=\"Type\"\n    color=\"warn\"\n    [disabled]=\"Disabled\">\n    <mat-icon *ngIf=\"iconLeft\" style=\"margin-right: 8px;\" >save</mat-icon>\n        <span>{{Label}}</span>\n        \n      <mat-icon *ngIf=\"iconRight\" style=\"margin-left: 8px;\">save</mat-icon>\n    </button></p>\n  `,\n})"
             },
             {
                 "name": "Template",
@@ -3290,21 +3417,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Progressbar.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<ProgressBarComponent>",
-                "defaultValue": "(args: ProgressBarComponent) => ({\n    props: args,\n  })"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/Radio.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<RadioComponent>",
                 "defaultValue": "(args: RadioComponent) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Progressbar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ProgressBarComponent>",
+                "defaultValue": "(args: ProgressBarComponent) => ({\n    props: args,\n  })"
             },
             {
                 "name": "Template",
@@ -3350,21 +3477,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Table.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<TableComponent>",
-                "defaultValue": "(args: TableComponent) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/Tabs.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<TabsComponent>",
                 "defaultValue": "(args: TabsComponent) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Table.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<TableComponent>",
+                "defaultValue": "(args: TableComponent) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -3671,46 +3798,26 @@
         "typealiases": [],
         "enumerations": [],
         "groupedVariables": {
-            "src/stories/Button.stories.ts": [
+            "src/stories/Markdown.stories.ts": [
                 {
-                    "name": "Action",
+                    "name": "actionsData",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/Button.stories.ts",
+                    "file": "src/stories/Markdown.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
+                    "type": "object",
+                    "defaultValue": "{\n  markdownChange: action('updateMarkdown'),\n}"
                 },
                 {
                     "name": "Primary",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/Button.stories.ts",
+                    "file": "src/stories/Markdown.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Secondary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<ButtonComponent>",
-                    "defaultValue": "(args) => ({\n  props: args,\n  template: `\n    <button \n    mat-button\n    [class]=\"Type\"\n    [color]=\"Color\"\n    [disabled]=\"Disabled\">\n        {{Label}}\n    </button>\n  `,\n})"
+                    "type": "Story",
+                    "defaultValue": "() => ({\n  \n  props: {\n    markdownChange: actionsData.markdownChange,\n    defaultTemplate: '###Hello',\n    maxLength: '1200',\n    showEditor: true\n  },\n\n})"
                 }
             ],
             "src/app/type/type.component.ts": [
@@ -3809,6 +3916,68 @@
                     "deprecationMessage": "",
                     "type": "Story<ButtonToggleComponent>",
                     "defaultValue": "(args: ButtonToggleComponent) => ({\n  props: args,\n})"
+                }
+            ],
+            "src/stories/Button.stories.ts": [
+                {
+                    "name": "Basic",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Floating",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<ButtonComponent>",
+                    "defaultValue": "(args) => ({\n  props: args,\n  template: `\n  <p>  <button mat-fab color=\"primary\" aria-label=\"Example icon button with a delete icon\">\n  <mat-icon>delete</mat-icon>\n </button>&nbsp;&nbsp;<button mat-mini-fab color=\"primary\" aria-label=\"Example icon button with a delete icon\">\n <mat-icon>delete</mat-icon>\n</button></p>\n <p>  <button mat-fab color=\"basic\" aria-label=\"Example icon button with a delete icon\">\n <mat-icon>delete</mat-icon>\n</button>&nbsp;&nbsp;<button mat-mini-fab color=\"basic\" aria-label=\"Example icon button with a delete icon\">\n<mat-icon>delete</mat-icon>\n</button></p>\n<p>  <button mat-fab color=\"warn\" aria-label=\"Example icon button with a delete icon\">\n<mat-icon>delete</mat-icon>\n</button>&nbsp;&nbsp;<button mat-mini-fab color=\"warn\" aria-label=\"Example icon button with a delete icon\">\n<mat-icon>delete</mat-icon>\n</button></p>\n  `,\n})"
+                },
+                {
+                    "name": "Icon",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<ButtonComponent>",
+                    "defaultValue": "(args) => ({\n  props: args,\n  template: `\n   <p> <button color=\"primary\" mat-icon-button aria-label=\"Example icon button with a vertical three dot icon\">\n   <mat-icon>more_vert</mat-icon>\n </button></p>\n <p> <button color=\"basic\" mat-icon-button aria-label=\"Example icon button with a vertical three dot icon\">\n <mat-icon>more_vert</mat-icon>\n</button></p>\n<p> <button color=\"warn\" mat-icon-button aria-label=\"Example icon button with a vertical three dot icon\">\n<mat-icon>more_vert</mat-icon>\n</button></p>\n  `,\n})"
+                },
+                {
+                    "name": "Raised",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Stroked",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "(args) => ({\n  props: args,\n  argTypes: {\n    Label: { control: 'text' },\n    // Color: { control: 'select', defaultValue:'primary', options: ['primary', 'accent', 'warn'] },\n    Type: {\n      control: 'select',\n      options: ['mat-raised-button', 'mat-stroked-button', 'mat-button'],\n      table: { disable: true },\n    },\n    Disabled: { control: 'boolean' },\n    iconLeft: { control: 'boolean' },\n    iconRight: { control: 'boolean' },\n  },\n  template: `\n   <p> <button \n    mat-button\n    [class]=\"Type\"\n    color=\"primary\"\n    [disabled]=\"Disabled\">\n    <mat-icon *ngIf=\"iconLeft\" style=\"margin-right: 8px;\" >save</mat-icon>\n        <span>{{Label}}</span>\n        \n      <mat-icon *ngIf=\"iconRight\" style=\"margin-left: 8px;\">save</mat-icon>\n    </button></p>\n    <p><button \n    mat-button\n    [class]=\"Type\"\n    color=\"basic\"\n    [disabled]=\"Disabled\">\n    <mat-icon *ngIf=\"iconLeft\" style=\"margin-right: 8px;\" >save</mat-icon>\n        <span>{{Label}}</span>\n        \n      <mat-icon *ngIf=\"iconRight\" style=\"margin-left: 8px;\">save</mat-icon>\n    </button></p>\n    <p><button \n    mat-button\n    [class]=\"Type\"\n    color=\"warn\"\n    [disabled]=\"Disabled\">\n    <mat-icon *ngIf=\"iconLeft\" style=\"margin-right: 8px;\" >save</mat-icon>\n        <span>{{Label}}</span>\n        \n      <mat-icon *ngIf=\"iconRight\" style=\"margin-left: 8px;\">save</mat-icon>\n    </button></p>\n  `,\n})"
                 }
             ],
             "src/stories/Chip.stories.ts": [
@@ -4015,28 +4184,6 @@
                     "defaultValue": "(args: SnackbarComponent) => ({\n  props: args,\n})"
                 }
             ],
-            "src/stories/Table.stories.ts": [
-                {
-                    "name": "Basic",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Table.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Table.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<TableComponent>",
-                    "defaultValue": "(args: TableComponent) => ({\n  props: args,\n})"
-                }
-            ],
             "src/stories/Tabs.stories.ts": [
                 {
                     "name": "Basic",
@@ -4067,6 +4214,28 @@
                     "deprecationMessage": "",
                     "type": "",
                     "defaultValue": "Template.bind({})"
+                }
+            ],
+            "src/stories/Table.stories.ts": [
+                {
+                    "name": "Basic",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<TableComponent>",
+                    "defaultValue": "(args: TableComponent) => ({\n  props: args,\n})"
                 }
             ],
             "src/stories/Tooltip.stories.ts": [
@@ -4832,7 +5001,7 @@
                 "linktype": "component",
                 "name": "CardComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coverageCount": "0/7",
                 "status": "low"
             },
             {
@@ -4905,6 +5074,15 @@
                 "name": "ListComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/markdown/markdown.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "MarkdownComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
                 "status": "low"
             },
             {
@@ -5178,7 +5356,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Action",
+                "name": "Basic",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -5188,7 +5366,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Primary",
+                "name": "Floating",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -5198,7 +5376,27 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Secondary",
+                "name": "Icon",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Raised",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Stroked",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -5438,6 +5636,26 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Markdown.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "actionsData",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Markdown.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -5857,7 +6075,7 @@
                 "linktype": "component",
                 "name": "PageComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {

@@ -24,4 +24,8 @@ export const parameters = {
       htmlWhitespaceSensitivity: 'strict',
     },
   },
+  backgrounds: {
+    default: 'light'
+  }
+  
 }

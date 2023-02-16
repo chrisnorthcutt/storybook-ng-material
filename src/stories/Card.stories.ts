@@ -25,6 +25,12 @@ export default {
     Action2: {
       control: { type: 'text' },
     },
+    Description: {
+      control: { type: 'text' },
+    },
+    Subtitle: {
+      control: { type: 'text' },
+    },
 
     imageSrc: {
         control: {type: 'text'}
@@ -41,7 +47,9 @@ Full.args = {
   Title: 'Shiba Inu',
   Action1: 'Like',
   Action2: 'Subscribe',
-  imageSrc: 'https://material.angular.io/assets/img/examples/shiba2.jpg'
+  imageSrc: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
+  Description: 'The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting.',
+  Subtitle: 'Dog Breed'
 };
 
 Full.parameters = {

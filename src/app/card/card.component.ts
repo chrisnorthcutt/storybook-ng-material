@@ -10,6 +10,12 @@ export class CardComponent  {
   @Input() 
   Title:string
 
+  @Input() 
+  Description:string
+  
+  @Input() 
+  Subtitle:string
+
   @Input()
   Action1:string
 

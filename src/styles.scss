@@ -11,95 +11,226 @@
 
 @include mat.core();
 
-// Define Typography Levels
-
 $fontConfig: (
-  display-4:
-    mat.define-typography-level(
-      112px,
-      112px,
-      300,
-      'Inter'
-      -0.0134em
-    ),
-  display-3:
-    mat.define-typography-level(
-      56px,
-      56px,
-      400,
-      'Inter'
-      -0.0089em
-    ),
-  display-2:
-    mat.define-typography-level(45px, 48px, 400, 'Inter', 0em),
-  display-1:
-    mat.define-typography-level(34px, 40px, 400, 'Inter', 0.0074em),
-  headline:
-    mat.define-typography-level(32px, 40px, 600, 'Inter', 0em),
-  title:
-    mat.define-typography-level(22px, 28px, 700, 'Inter', 0.0075em),
-  subheading-2:
-    mat.define-typography-level(16px, 24px, 500, 'Inter', 0),
-  subheading-1:
-    mat.define-typography-level(14px, 20px, 500, 'Inter', 0),
-  body-2:
-    mat.define-typography-level(16px, 24px, 400, 'Inter', 0.0179em),
-  body-1: mat.define-typography-level(14px, 20px, 400, 'Inter', 0),
-  button: mat.define-typography-level(14px, 20px, 500, 'Inter', 0),
-  caption:
-    mat.define-typography-level(12px, 20px, 400, 'Inter', 0.0333em),
-  input:
-    mat.define-typography-level(16px, 24px, 400, 'Inter', 0),
+  display-4: mat.define-typography-level(112px, 112px, 300, 'Inter', -0.0134em),
+  display-3: mat.define-typography-level(56px, 56px, 400, 'Inter', -0.0089em),
+  display-2: mat.define-typography-level(45px, 48px, 400, 'Inter', 0.0000em),
+  display-1: mat.define-typography-level(34px, 40px, 400, 'Inter', 0.0074em),
+  headline: mat.define-typography-level(24px, 32px, 400, 'Inter', 0.0000em),
+  title: mat.define-typography-level(20px, 32px, 500, 'Inter', 0.0075em),
+  subheading-2: mat.define-typography-level(16px, 28px, 400, 'Inter', 0.0094em),
+  subheading-1: mat.define-typography-level(15px, 24px, 500, 'Inter', 0.0067em),
+  body-2: mat.define-typography-level(14px, 24px, 500, 'Inter', 0.0179em),
+  body-1: mat.define-typography-level(14px, 20px, 400, 'Inter', 0.0179em),
+  button: mat.define-typography-level(14px, 14px, 500, 'Inter', 0.0893em),
+  caption: mat.define-typography-level(12px, 20px, 400, 'Inter', 0.0333em),
+  input: mat.define-typography-level(inherit, 1.125, 400, 'Inter', .5px)
 );
 
-// Define Light Theme Text
+// Foreground Elements
 
-$dark-text: #000;
-
-$dark-disabled-text: rgba($dark-text, 0.38);
-
+// Light Theme Text
+$dark-text: ngcommon.$color-black;
+$dark-primary-text: ngcommon.$color-ink-normal;
+$dark-accent-text: ngcommon.$color-ink-secondary;
+$dark-disabled-text: rgba($dark-primary-text, 0.38);
+$dark-dividers: ngcommon.$color-gray-lighter;
+$dark-focused: rgba($dark-primary-text, 0.12);
 
 $mat-light-theme-foreground: (
-  base: $dark-text,
-  divider: ngcommon.$color-gray-light,
-  dividers: ngcommon.$color-gray-light,
-  disabled: ngcommon.$color-ink-disabled,
-  disabled-button: rgba($dark-text, 0.26),
-  disabled-text: $dark-disabled-text,
-  elevation: $dark-text,
-  secondary-text: ngcommon.$color-ink-disabled,
-  hint-text: ngcommon.$color-ink-secondary,
-  accent-text: ngcommon.$color-ink-disabled,
-  icon: ngcommon.$color-ink-disabled,
-  icons: ngcommon.$color-ink-disabled,
-  text: ngcommon.$color-ink-normal,
-  slider-min: ngcommon.$color-ink-normal,
-  slider-off: rgba($dark-text, 0.26),
+  base:              ngcommon.$color-black,
+  divider:           $dark-dividers,
+  dividers:          $dark-dividers,
+  disabled:          $dark-disabled-text,
+  disabled-button:   rgba($dark-text, 0.26),
+  disabled-text:     $dark-disabled-text,
+  elevation:         ngcommon.$color-black,
+  secondary-text:    $dark-accent-text,
+  hint-text:         $dark-disabled-text,
+  accent-text:       $dark-accent-text,
+  icon:              $dark-accent-text,
+  icons:             $dark-accent-text,
+  text:              $dark-primary-text,
+  slider-min:        $dark-primary-text,
+  slider-off:        rgba($dark-text, 0.26),
   slider-off-active: $dark-disabled-text,
 );
 
-// Define Theme Palettes
+// Dark Theme text
+$light-text: #ffffff;
+$light-primary-text: $light-text;
+$light-accent-text: rgba($light-primary-text, 0.7);
+$light-disabled-text: rgba($light-primary-text, 0.5);
+$light-dividers: rgba($light-primary-text, 0.12);
+$light-focused: rgba($light-primary-text, 0.12);
 
-$default-theme-primary: mat.define-palette(ngcommon.$color-blue-palette, 900);
-$default-theme-accent: mat.define-palette(ngcommon.$color-yellow-palette);
-$default-theme-warn: mat.define-palette(ngcommon.$color-red-palette);
-
-$custom-typography: mat.define-typography-config($fontConfig);
-
-$default-theme: mat.define-light-theme(
-  (
-    color: (
-      primary: $default-theme-primary,
-      accent: $default-theme-accent,
-      warn: $default-theme-warn,
-    ),
-  )
+$mat-dark-theme-foreground: (
+  base:              $light-text,
+  divider:           $light-dividers,
+  dividers:          $light-dividers,
+  disabled:          $light-disabled-text,
+  disabled-button:   rgba($light-text, 0.3),
+  disabled-text:     $light-disabled-text,
+  elevation:         black,
+  hint-text:         $light-disabled-text,
+  secondary-text:    $light-accent-text,
+  accent-text:       $light-accent-text,
+  icon:              $light-text,
+  icons:             $light-text,
+  text:              $light-text,
+  slider-min:        $light-text,
+  slider-off:        rgba($light-text, 0.3),
+  slider-off-active: rgba($light-text, 0.3),
 );
 
-// Apply Theme and Typography
+// Background config
+// Light bg
+$light-background:    ngcommon.$color-bg1;
+$light-bg-darker-5:   darken($light-background, 5%);
+$light-bg-darker-10:  darken($light-background, 10%);
+$light-bg-darker-20:  darken($light-background, 20%);
+$light-bg-darker-30:  darken($light-background, 30%);
+$light-bg-lighter-5:  lighten($light-background, 5%);
+$dark-bg-tooltip:     lighten(#d33838, 20%);
+$dark-bg-alpha-4:     rgba(#d71717, 0.04);
+$dark-bg-alpha-12:    rgba(#ea1212, 0.12);
 
-@include mat.all-component-themes($default-theme);
+$mat-light-theme-background: (
+  background:               $light-background,
+  status-bar:               $light-bg-darker-20,
+  app-bar:                  $light-bg-darker-5,
+  hover:                    ngcommon.$color-gray-lighter,
+  card:                     $light-bg-lighter-5,
+  dialog:                   $light-bg-lighter-5,
+  tooltip:                  $dark-bg-tooltip,
+  disabled-button:          ngcommon.$color-gray-lighter,
+  raised-button:            $light-bg-lighter-5,
+  focused-button:           $dark-focused,
+  selected-button:          ngcommon.$color-blue-lighter,
+  selected-disabled-button: $light-bg-darker-30,
+  disabled-button-toggle:   $light-bg-darker-10,
+  unselected-chip:          $light-bg-darker-10,
+  disabled-list-option:     $light-bg-darker-10,
+);
+
+// Dark bg
+$dark-background:     #2c2c2c;
+$dark-bg-lighter-5:   lighten($dark-background, 5%);
+$dark-bg-lighter-10:  lighten($dark-background, 10%);
+$dark-bg-lighter-20:  lighten($dark-background, 20%);
+$dark-bg-lighter-30:  lighten($dark-background, 30%);
+$light-bg-alpha-4:    rgba(#f5f6f7, 0.04);
+$light-bg-alpha-12:   rgba(#f5f6f7, 0.12);
+
+// Background palette for dark themes.
+$mat-dark-theme-background: (
+  background:               $dark-background,
+  status-bar:               $dark-bg-lighter-20,
+  app-bar:                  $dark-bg-lighter-5,
+  hover:                    $light-bg-alpha-4,
+  card:                     $dark-bg-lighter-5,
+  dialog:                   $dark-bg-lighter-5,
+  tooltip:                  $dark-bg-lighter-20,
+  disabled-button:          $light-bg-alpha-12,
+  raised-button:            $dark-bg-lighter-5,
+  focused-button:           $light-focused,
+  selected-button:          $dark-bg-lighter-20,
+  selected-disabled-button: $dark-bg-lighter-30,
+  disabled-button-toggle:   $dark-bg-lighter-10,
+  unselected-chip:          $dark-bg-lighter-20,
+  disabled-list-option:     $dark-bg-lighter-10,
+);
+
+// Compute font config
 @include mat.core($fontConfig);
+
+// Theme Config
+
+body {
+  --primary-color: #2e729f;
+  --primary-lighter-color: #c0d5e2;
+  --primary-darker-color: #1d5583;
+  --text-primary-color: #{$light-primary-text};
+  --text-primary-lighter-color: #{$dark-primary-text};
+  --text-primary-darker-color: #{$light-primary-text};
+}   
+$mat-primary: (
+  main: #2e729f,
+  lighter: #c0d5e2,
+  darker: #1d5583,
+  200: #2e729f, // For slide toggle,
+  contrast : (
+    main: $light-primary-text,
+    lighter: $dark-primary-text,
+    darker: $light-primary-text,
+  )
+);
+$theme-primary: mat.define-palette($mat-primary, main, lighter, darker);
+
+
+body {
+  --accent-color: #49c0b1;
+  --accent-lighter-color: #c8ece8;
+  --accent-darker-color: #31aa98;
+  --text-accent-color: #{$dark-primary-text};
+  --text-accent-lighter-color: #{$dark-primary-text};
+  --text-accent-darker-color: #{$dark-primary-text};
+}   
+$mat-accent: (
+  main: #49c0b1,
+  lighter: #c8ece8,
+  darker: #31aa98,
+  200: #49c0b1, // For slide toggle,
+  contrast : (
+    main: $dark-primary-text,
+    lighter: $dark-primary-text,
+    darker: $dark-primary-text,
+  )
+);
+$theme-accent: mat.define-palette($mat-accent, main, lighter, darker);
+
+
+body {
+  --warn-color: #c84026;
+  --warn-lighter-color: #efc6be;
+  --warn-darker-color: #b42a17;
+  --text-warn-color: #{$light-primary-text};
+  --text-warn-lighter-color: #{$dark-primary-text};
+  --text-warn-darker-color: #{$light-primary-text};
+}   
+$mat-warn: (
+  main: #c84026,
+  lighter: #efc6be,
+  darker: #b42a17,
+  200: #c84026, // For slide toggle,
+  contrast : (
+    main: $light-primary-text,
+    lighter: $dark-primary-text,
+    darker: $light-primary-text,
+  )
+);
+$theme-warn: mat.define-palette($mat-warn, main, lighter, darker);
+;
+
+$theme: (
+  primary: $theme-primary,
+  accent: $theme-accent,
+  warn: $theme-warn,
+  is-dark: true,
+  foreground: $mat-dark-theme-foreground,
+  background: $mat-dark-theme-background,
+);
+$altTheme: (
+  primary: $theme-primary,
+  accent: $theme-accent,
+  warn: $theme-warn,
+  is-dark: false,
+  foreground: $mat-light-theme-foreground,
+  background: $mat-light-theme-background,
+);
+
+// Theme Init
+@include mat.all-component-themes($altTheme);
 
      
 
@@ -130,11 +261,11 @@ $default-theme: mat.define-light-theme(
   
 }
 
-.oc.mat-button-toggle-group {
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
-  height: 40px;
-}
+// .oc.mat-button-toggle-group {
+//   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+//   border-radius: 4px;
+//   height: 40px;
+// }
 
 .oc.mat-button-toggle-group .mat-button-toggle {
   height: 40px;
@@ -144,10 +275,10 @@ $default-theme: mat.define-light-theme(
   .mat-button-toggle-label-content {
   line-height: 40px;
 }
-.mat-button-toggle-checked.mat-button-toggle-appearance-standard {
-  background-color: mat.get-color-from-palette($default-theme-primary, 50);
-  color: mat.get-color-from-palette($default-theme-primary, 900);
-}
+// .mat-button-toggle-checked.mat-button-toggle-appearance-standard {
+//   background-color: mat.get-color-from-palette($default-theme-primary, 50);
+//   color: mat.get-color-from-palette($default-theme-primary, 900);
+// }
 
 
 
@@ -159,6 +290,6 @@ $default-theme: mat.define-light-theme(
   display: inherit !important;
 }
 
-.mat-raised-button.mat-button-base:focus {
-  box-shadow: 0px 0px 8px #40b3ff, 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.12), 0px 1px 3px rgba(0, 0, 0, 0.2);
+.mat-focused span.mat-placeholder-required.mat-form-field-required-marker {
+  color: ngcommon.$color-red
 }

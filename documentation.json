@@ -520,7 +520,7 @@
         },
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-d55e6258c4ebbdb44725e9427e43bf32809023cf013f49c27471e68f357e84a181730c1bc3a06580fbb03222475dc92896ff91e0a0ed429a04d1e0b9462f71b8",
+            "id": "component-ButtonComponent-1f7590843040488db9ca9cb9a02ac9c532bf0adfb15c9ad04ce0ae5c00d76415e8e707f10c1ebb3291a217e7f4cc3176176f4e526353d9673a6224bc784ff5d1",
             "file": "src/app/button/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -541,7 +541,7 @@
                     "name": "Disabled",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 17,
+                    "line": 14,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -549,7 +549,7 @@
                     "name": "iconLeft",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 19,
+                    "line": 16,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -557,7 +557,7 @@
                     "name": "iconRight",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 21,
+                    "line": 18,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -565,7 +565,7 @@
                     "name": "Label",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 13,
+                    "line": 10,
                     "type": "string",
                     "decorators": []
                 },
@@ -574,7 +574,7 @@
                     "defaultValue": "['mat-raised-button', 'mat-stroked-button', 'mat-button']",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 15,
+                    "line": 12,
                     "type": "string[]",
                     "decorators": []
                 }
@@ -589,7 +589,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { MatButton } from '@angular/material/button';\n\n@Component({\n  selector: 'app-button',\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.scss'],\n})\n\n// Material Button\nexport class ButtonComponent{\n  @Input()\n  Label: string;\n  @Input()\n  Type: string[] = ['mat-raised-button', 'mat-stroked-button', 'mat-button'];\n  @Input()\n  Disabled: boolean;\n  @Input()\n  iconLeft: boolean;\n  @Input()\n  iconRight: boolean;\n  // @Input()\n  // color: string;\n  // @Input()\n  // disabled: boolean;\n}\n// @Component({\n//   selector: 'button[mat-stroked-button]',\n//   templateUrl: './button.component.html',\n//   styleUrls: ['./button.component.scss'],\n// })\n\n// Material Button\n// export class ButtonStrokedComponent{\n//   @Input()\n//   Label: string;\n//   @Input()\n//   Type: string[] = ['mat-raised-button', 'mat-stroked-button', 'mat-button'];\n//   @Input()\n//   Disabled: boolean;\n//   @Input()\n//   iconLeft: boolean;\n//   @Input()\n//   iconRight: boolean;\n//   @Input()\n//   color: string;\n//   @Input()\n//   disabled: boolean;\n// }\n\n// @Component({\n//   selector: 'button[mat-button]',\n//   templateUrl: './button.component.html',\n//   styleUrls: ['./button.component.scss'],\n// })\n// // Material Button\n// export class ButtonBasicComponent{\n//   @Input()\n//   Label: string;\n//   @Input()\n//   Type: string[] = ['mat-raised-button', 'mat-stroked-button', 'mat-button'];\n//   @Input()\n//   Disabled: boolean;\n//   @Input()\n//   iconLeft: boolean;\n//   @Input()\n//   iconRight: boolean;\n//   @Input()\n//   color: string;\n//   @Input()\n//   disabled: boolean;\n// }\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-button',\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.scss'],\n})\nexport class ButtonComponent {\n  @Input()\n  Label: string;\n  @Input()\n  Type: string[] = ['mat-raised-button', 'mat-stroked-button', 'mat-button'];\n  @Input()\n  Disabled: boolean;\n  @Input()\n  iconLeft: boolean;\n  @Input()\n  iconRight: boolean;\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -598,7 +598,7 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<button mat-raised-button *ngIf=\"Type === 'mat-raised-button'\" color=\"primary\" disabled={{Disabled}}><mat-icon *ngIf=\"iconLeft\">save</mat-icon>{{Label}}<mat-icon *ngIf=\"iconRight\">save</mat-icon></button>\n<button mat-stroked-button *ngIf=\"Type === 'mat-stroked-button'\" color=\"primary\" disabled={{Disabled}}><mat-icon *ngIf=\"iconLeft\">save</mat-icon>{{Label}}<mat-icon *ngIf=\"iconRight\">save</mat-icon></button>\n<button mat-button *ngIf=\"Type === 'mat-button'\" color=\"primary\" disabled={{Disabled}}><mat-icon *ngIf=\"iconLeft\">save</mat-icon>{{Label}}<mat-icon *ngIf=\"iconRight\">save</mat-icon></button>\n  "
+            "templateData": "<ng-container *ngIf=\"Type === 'mat-raised-button'\"><button mat-raised-button  color=\"primary\" disabled={{Disabled}}><mat-icon *ngIf=\"iconLeft\">save</mat-icon>{{Label}}<mat-icon *ngIf=\"iconRight\">save</mat-icon></button></ng-container>\n<button mat-stroked-button *ngIf=\"Type === 'mat-stroked-button'\" color=\"primary\" disabled={{Disabled}}><mat-icon *ngIf=\"iconLeft\">save</mat-icon>{{Label}}<mat-icon *ngIf=\"iconRight\">save</mat-icon></button>\n<button mat-button *ngIf=\"Type === 'mat-button'\" color=\"primary\" disabled={{Disabled}}><mat-icon *ngIf=\"iconLeft\">save</mat-icon>{{Label}}<mat-icon *ngIf=\"iconRight\">save</mat-icon></button>\n  "
         },
         {
             "name": "ButtonToggleComponent",
@@ -2776,6 +2776,16 @@
                 "name": "Basic",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/Button-Toggle.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Basic",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/Button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -2797,16 +2807,6 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/ExpansionPanel.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Basic",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Button-Toggle.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -3297,16 +3297,6 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Card.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<CardComponent>",
-                "defaultValue": "(args: CardComponent) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/Badge.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -3317,11 +3307,31 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/Button-Toggle.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ButtonToggleComponent>",
+                "defaultValue": "(args: ButtonToggleComponent) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/Button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "(args) => ({\n  props: args,\n  argTypes: {\n    Label: { control: 'text' },\n    // Color: { control: 'select', defaultValue:'primary', options: ['primary', 'accent', 'warn'] },\n    Type: {\n      control: 'select',\n      options: ['mat-raised-button', 'mat-stroked-button', 'mat-button'],\n      table: { disable: true },\n    },\n    Disabled: { control: 'boolean' },\n    iconLeft: { control: 'boolean' },\n    iconRight: { control: 'boolean' },\n  },\n  template: `\n   <p> <button \n    mat-button\n    [class]=\"Type\"\n    color=\"primary\"\n    [disabled]=\"Disabled\">\n    <mat-icon *ngIf=\"iconLeft\" style=\"margin-right: 8px;\" >save</mat-icon>\n        <span>{{Label}}</span>\n        \n      <mat-icon *ngIf=\"iconRight\" style=\"margin-left: 8px;\">save</mat-icon>\n    </button></p>\n    <p><button \n    mat-button\n    [class]=\"Type\"\n    color=\"basic\"\n    [disabled]=\"Disabled\">\n    <mat-icon *ngIf=\"iconLeft\" style=\"margin-right: 8px;\" >save</mat-icon>\n        <span>{{Label}}</span>\n        \n      <mat-icon *ngIf=\"iconRight\" style=\"margin-left: 8px;\">save</mat-icon>\n    </button></p>\n    <p><button \n    mat-button\n    [class]=\"Type\"\n    color=\"warn\"\n    [disabled]=\"Disabled\">\n    <mat-icon *ngIf=\"iconLeft\" style=\"margin-right: 8px;\" >save</mat-icon>\n        <span>{{Label}}</span>\n        \n      <mat-icon *ngIf=\"iconRight\" style=\"margin-left: 8px;\">save</mat-icon>\n    </button></p>\n  `,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Card.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<CardComponent>",
+                "defaultValue": "(args: CardComponent) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -3347,11 +3357,11 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Button-Toggle.stories.ts",
+                "file": "src/stories/List.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<ButtonToggleComponent>",
-                "defaultValue": "(args: ButtonToggleComponent) => ({\n  props: args,\n})"
+                "type": "Story<ListComponent>",
+                "defaultValue": "(args: ListComponent) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -3362,16 +3372,6 @@
                 "deprecationMessage": "",
                 "type": "Story<FormFieldComponent>",
                 "defaultValue": "(args: FormFieldComponent) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/List.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<ListComponent>",
-                "defaultValue": "(args: ListComponent) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -3397,11 +3397,11 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Paginator.stories.ts",
+                "file": "src/stories/Page.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<PaginatorComponent>",
-                "defaultValue": "(args: PaginatorComponent) => ({\n  props: args,\n})"
+                "type": "Story<Page>",
+                "defaultValue": "(args: Page) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -3417,31 +3417,11 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Sidenav.stories.ts",
+                "file": "src/stories/Paginator.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<SidenavComponent>",
-                "defaultValue": "(args: SidenavComponent) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Page.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<Page>",
-                "defaultValue": "(args: Page) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Slider.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<SliderComponent>",
-                "defaultValue": "(args: SliderComponent) => ({\n  props: args,\n})"
+                "type": "Story<PaginatorComponent>",
+                "defaultValue": "(args: PaginatorComponent) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -3452,6 +3432,26 @@
                 "deprecationMessage": "",
                 "type": "Story<RadioComponent>",
                 "defaultValue": "(args: RadioComponent) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Sidenav.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<SidenavComponent>",
+                "defaultValue": "(args: SidenavComponent) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Slider.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<SliderComponent>",
+                "defaultValue": "(args: SliderComponent) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -3607,7 +3607,7 @@
             },
             {
                 "name": "ANGULAR_PROPS_TEMPLATE",
-                "file": "src/stories/Slider.stories.ts",
+                "file": "src/stories/Radio.stories.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
                 "deprecated": false,
@@ -3647,7 +3647,7 @@
             },
             {
                 "name": "ANGULAR_PROPS_TEMPLATE",
-                "file": "src/stories/Radio.stories.ts",
+                "file": "src/stories/Slider.stories.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
                 "deprecated": false,
@@ -3886,6 +3886,38 @@
                     "defaultValue": "(args) => ({\n  props: args,\n  template: `\n  <button mat-raised-button\n  [matBadge]=\"label\" [matBadgePosition]=\"position\" [matBadgeColor]=\"color\" [matBadgeSize]=\"size\">\nAction\n</button>`\n})"
                 }
             ],
+            "src/stories/Button-Toggle.stories.ts": [
+                {
+                    "name": "Basic",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Button-Toggle.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Multiple",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Button-Toggle.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Button-Toggle.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<ButtonToggleComponent>",
+                    "defaultValue": "(args: ButtonToggleComponent) => ({\n  props: args,\n})"
+                }
+            ],
             "src/stories/Button.stories.ts": [
                 {
                     "name": "Basic",
@@ -4020,38 +4052,6 @@
                     "deprecationMessage": "",
                     "type": "Story<ExpansionPanelComponent>",
                     "defaultValue": "(args: ExpansionPanelComponent) => ({\n  props: args,\n})"
-                }
-            ],
-            "src/stories/Button-Toggle.stories.ts": [
-                {
-                    "name": "Basic",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Button-Toggle.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Multiple",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Button-Toggle.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Button-Toggle.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<ButtonToggleComponent>",
-                    "defaultValue": "(args: ButtonToggleComponent) => ({\n  props: args,\n})"
                 }
             ],
             "src/stories/Menu.stories.ts": [
@@ -4733,10 +4733,10 @@
                     ]
                 }
             ],
-            "src/stories/Slider.stories.ts": [
+            "src/stories/Radio.stories.ts": [
                 {
                     "name": "ANGULAR_PROPS_TEMPLATE",
-                    "file": "src/stories/Slider.stories.ts",
+                    "file": "src/stories/Radio.stories.ts",
                     "ctype": "miscellaneous",
                     "subtype": "function",
                     "deprecated": false,
@@ -4775,10 +4775,10 @@
                     ]
                 }
             ],
-            "src/stories/Radio.stories.ts": [
+            "src/stories/Slider.stories.ts": [
                 {
                     "name": "ANGULAR_PROPS_TEMPLATE",
-                    "file": "src/stories/Radio.stories.ts",
+                    "file": "src/stories/Slider.stories.ts",
                     "ctype": "miscellaneous",
                     "subtype": "function",
                     "deprecated": false,

@@ -2866,7 +2866,7 @@
                 "name": "Basic",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Table.stories.ts",
+                "file": "src/stories/Tabs.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2876,7 +2876,7 @@
                 "name": "Basic",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Tabs.stories.ts",
+                "file": "src/stories/Table.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -3125,26 +3125,6 @@
                 "defaultValue": "(args: ChipListComponent) => ({\n\n  props: args,\n})"
             },
             {
-                "name": "LoggedIn",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Page.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "LoggedOut",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Page.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
                 "name": "Multiple",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -3357,21 +3337,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/List.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<ListComponent>",
-                "defaultValue": "(args: ListComponent) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/FormField.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<FormFieldComponent>",
                 "defaultValue": "(args: FormFieldComponent) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/List.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ListComponent>",
+                "defaultValue": "(args: ListComponent) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -3397,11 +3377,11 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Page.stories.ts",
+                "file": "src/stories/Paginator.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<Page>",
-                "defaultValue": "(args: Page) => ({\n  props: args,\n})"
+                "type": "Story<PaginatorComponent>",
+                "defaultValue": "(args: PaginatorComponent) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -3412,16 +3392,6 @@
                 "deprecationMessage": "",
                 "type": "Story<ProgressBarComponent>",
                 "defaultValue": "(args: ProgressBarComponent) => ({\n    props: args,\n  })"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Paginator.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<PaginatorComponent>",
-                "defaultValue": "(args: PaginatorComponent) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -3477,21 +3447,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Table.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<TableComponent>",
-                "defaultValue": "(args: TableComponent) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/Tabs.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<TabsComponent>",
                 "defaultValue": "(args: TabsComponent) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Table.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<TableComponent>",
+                "defaultValue": "(args: TableComponent) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -4184,28 +4154,6 @@
                     "defaultValue": "(args: SnackbarComponent) => ({\n  props: args,\n})"
                 }
             ],
-            "src/stories/Table.stories.ts": [
-                {
-                    "name": "Basic",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Table.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Table.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<TableComponent>",
-                    "defaultValue": "(args: TableComponent) => ({\n  props: args,\n})"
-                }
-            ],
             "src/stories/Tabs.stories.ts": [
                 {
                     "name": "Basic",
@@ -4236,6 +4184,28 @@
                     "deprecationMessage": "",
                     "type": "",
                     "defaultValue": "Template.bind({})"
+                }
+            ],
+            "src/stories/Table.stories.ts": [
+                {
+                    "name": "Basic",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<TableComponent>",
+                    "defaultValue": "(args: TableComponent) => ({\n  props: args,\n})"
                 }
             ],
             "src/stories/Tooltip.stories.ts": [
@@ -4613,38 +4583,6 @@
                     "deprecationMessage": "",
                     "type": "Story<StepperComponent>",
                     "defaultValue": "(args: StepperComponent) => ({\n    props: args,\n  })"
-                }
-            ],
-            "src/stories/Page.stories.ts": [
-                {
-                    "name": "LoggedIn",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Page.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "LoggedOut",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Page.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Page.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<Page>",
-                    "defaultValue": "(args: Page) => ({\n  props: args,\n})"
                 }
             ]
         },
@@ -5722,36 +5660,6 @@
             },
             {
                 "filePath": "src/stories/Metriccard.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Template",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Page.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "LoggedIn",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Page.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "LoggedOut",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Page.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
